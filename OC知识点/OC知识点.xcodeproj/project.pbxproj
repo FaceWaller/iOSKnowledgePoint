@@ -16,6 +16,7 @@
 		E74FD91520A6D40300793950 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E74FD91420A6D40300793950 /* MainViewController.m */; };
 		E74FD91B20A6D4E900793950 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = E74FD91A20A6D4E900793950 /* TestView.m */; };
 		E79004E420A81FE700AE02F3 /* BlockTestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = E79004E320A81FE700AE02F3 /* BlockTestObj.m */; };
+		E79004F220A8360000AE02F3 /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E79004F120A8360000AE02F3 /* ThreadViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		E74FD91A20A6D4E900793950 /* TestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
 		E79004E220A81FE700AE02F3 /* BlockTestObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockTestObj.h; sourceTree = "<group>"; };
 		E79004E320A81FE700AE02F3 /* BlockTestObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockTestObj.m; sourceTree = "<group>"; };
+		E79004F020A8360000AE02F3 /* ThreadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadViewController.h; sourceTree = "<group>"; };
+		E79004F120A8360000AE02F3 /* ThreadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,10 +112,9 @@
 				E74FD8E220A6D16E00793950 /* AppDelegate.m */,
 				E74FD91320A6D40300793950 /* MainViewController.h */,
 				E74FD91420A6D40300793950 /* MainViewController.m */,
-				E79004E220A81FE700AE02F3 /* BlockTestObj.h */,
-				E79004E320A81FE700AE02F3 /* BlockTestObj.m */,
-				E74FD91920A6D4E900793950 /* TestView.h */,
-				E74FD91A20A6D4E900793950 /* TestView.m */,
+				E79004E920A832CF00AE02F3 /* 多线程 */,
+				E79004E720A832AB00AE02F3 /* 回调 */,
+				E79004E520A8327900AE02F3 /* Block */,
 				E74FD8EA20A6D17000793950 /* Assets.xcassets */,
 				E74FD8EC20A6D17000793950 /* LaunchScreen.storyboard */,
 				E74FD8EF20A6D17000793950 /* Info.plist */,
@@ -137,6 +139,57 @@
 				E74FD90720A6D17000793950 /* Info.plist */,
 			);
 			path = "OC知识点UITests";
+			sourceTree = "<group>";
+		};
+		E79004E520A8327900AE02F3 /* Block */ = {
+			isa = PBXGroup;
+			children = (
+				E79004E220A81FE700AE02F3 /* BlockTestObj.h */,
+				E79004E320A81FE700AE02F3 /* BlockTestObj.m */,
+			);
+			path = Block;
+			sourceTree = "<group>";
+		};
+		E79004E720A832AB00AE02F3 /* 回调 */ = {
+			isa = PBXGroup;
+			children = (
+				E74FD91920A6D4E900793950 /* TestView.h */,
+				E74FD91A20A6D4E900793950 /* TestView.m */,
+			);
+			path = "回调";
+			sourceTree = "<group>";
+		};
+		E79004E920A832CF00AE02F3 /* 多线程 */ = {
+			isa = PBXGroup;
+			children = (
+				E79004EE20A835CE00AE02F3 /* Controller */,
+				E79004EF20A835CE00AE02F3 /* Model */,
+				E79004ED20A835CE00AE02F3 /* View */,
+			);
+			path = "多线程";
+			sourceTree = "<group>";
+		};
+		E79004ED20A835CE00AE02F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E79004EE20A835CE00AE02F3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E79004F020A8360000AE02F3 /* ThreadViewController.h */,
+				E79004F120A8360000AE02F3 /* ThreadViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E79004EF20A835CE00AE02F3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E79004F220A8360000AE02F3 /* ThreadViewController.m in Sources */,
 				E79004E420A81FE700AE02F3 /* BlockTestObj.m in Sources */,
 				E74FD91B20A6D4E900793950 /* TestView.m in Sources */,
 				E74FD8F120A6D17000793950 /* main.m in Sources */,
