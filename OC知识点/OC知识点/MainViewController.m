@@ -8,7 +8,7 @@
 
 #import "MainViewController.h"
 #import "TestView.h"
-#import "TestObj.h"
+#import "BlockTestObj.h"
 @interface MainViewController ()<ChangeColor>
 @end
 
@@ -34,15 +34,8 @@
 
     
 #pragma mark block
+    BlockTestObj * blockTest = [[BlockTestObj alloc]init];
     
-//    TestObj * obj = [[TestObj alloc]init];;
-    __block int a = 1;  //不加上__block block内部是访问不到a的
-    void (^changeIntBlock)(void) = ^(void){
-        a++;
-    };
-    NSLog(@"a = %d",a);
-    changeIntBlock();
-    NSLog(@"a = %d",a);
     
     
 }
@@ -51,26 +44,5 @@
     self.view.backgroundColor = [UIColor blueColor];
 }
 
-
-
-
-
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

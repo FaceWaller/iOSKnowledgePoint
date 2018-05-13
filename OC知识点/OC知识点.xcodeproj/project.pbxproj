@@ -15,6 +15,7 @@
 		E74FD90620A6D17000793950 /* OC___UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E74FD90520A6D17000793950 /* OC___UITests.m */; };
 		E74FD91520A6D40300793950 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E74FD91420A6D40300793950 /* MainViewController.m */; };
 		E74FD91B20A6D4E900793950 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = E74FD91A20A6D4E900793950 /* TestView.m */; };
+		E79004E420A81FE700AE02F3 /* BlockTestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = E79004E320A81FE700AE02F3 /* BlockTestObj.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +53,8 @@
 		E74FD91420A6D40300793950 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		E74FD91920A6D4E900793950 /* TestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
 		E74FD91A20A6D4E900793950 /* TestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
-		E74FD91E20A6F42B00793950 /* TestObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestObj.h; sourceTree = "<group>"; };
-		E74FD91F20A6F42B00793950 /* TestObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestObj.m; sourceTree = "<group>"; };
+		E79004E220A81FE700AE02F3 /* BlockTestObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockTestObj.h; sourceTree = "<group>"; };
+		E79004E320A81FE700AE02F3 /* BlockTestObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockTestObj.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,10 +109,10 @@
 				E74FD8E220A6D16E00793950 /* AppDelegate.m */,
 				E74FD91320A6D40300793950 /* MainViewController.h */,
 				E74FD91420A6D40300793950 /* MainViewController.m */,
+				E79004E220A81FE700AE02F3 /* BlockTestObj.h */,
+				E79004E320A81FE700AE02F3 /* BlockTestObj.m */,
 				E74FD91920A6D4E900793950 /* TestView.h */,
 				E74FD91A20A6D4E900793950 /* TestView.m */,
-				E74FD91E20A6F42B00793950 /* TestObj.h */,
-				E74FD91F20A6F42B00793950 /* TestObj.m */,
 				E74FD8EA20A6D17000793950 /* Assets.xcassets */,
 				E74FD8EC20A6D17000793950 /* LaunchScreen.storyboard */,
 				E74FD8EF20A6D17000793950 /* Info.plist */,
@@ -267,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E79004E420A81FE700AE02F3 /* BlockTestObj.m in Sources */,
 				E74FD91B20A6D4E900793950 /* TestView.m in Sources */,
 				E74FD8F120A6D17000793950 /* main.m in Sources */,
 				E74FD91520A6D40300793950 /* MainViewController.m in Sources */,
