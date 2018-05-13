@@ -8,7 +8,7 @@
 //
 
 #import "ThreadViewController.h"
-#import "Masonry.h"
+#import "PureLayout.h"
 @interface ThreadViewController ()
 
 @end
@@ -22,23 +22,42 @@
     [self setUpUI];
 }
 
+
 - (void)setUpUI{
     //NSThread
-    UIButton * nsthreadBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, 100, 150, 50)];
+    UIButton * nsthreadBtn = [[UIButton alloc]init];
     nsthreadBtn.backgroundColor = [UIColor grayColor];
     [nsthreadBtn setTitle:@"NSThread" forState:UIControlStateNormal];
     [self.view addSubview:nsthreadBtn];
     [nsthreadBtn addTarget:self action:@selector(nsthreadAction) forControlEvents:UIControlEventTouchUpInside];
     
-    nsthreadBtn mas_ma
+    
+    
     
     
     //GCD
-    UIButton * gcdBtn = [[UIButton alloc]initWithFrame:CGRectMake(200, 100, 150, 50)];
+    UIButton * gcdBtn = [[UIButton alloc]init];
     gcdBtn.backgroundColor = [UIColor grayColor];
     [gcdBtn setTitle:@"gcd" forState:UIControlStateNormal];
     [self.view addSubview:gcdBtn];
     [gcdBtn addTarget:self action:@selector(gcd) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    
+    
+    
+    //布局
+    [nsthreadBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.view withOffset:80];
+    [nsthreadBtn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.view withOffset:20];
+    [nsthreadBtn autoSetDimension:ALDimensionWidth toSize:150];
+    [nsthreadBtn autoSetDimension:ALDimensionHeight toSize:50];
+    
+    
+//    [gcdBtn autoAlignAxis:ALAxisVertical toSameAxisOfView:nsthreadBtn];
+    [gcdBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.view withOffset:80];
+    [gcdBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.view withOffset:-20];
+    [gcdBtn autoSetDimension:ALDimensionWidth toSize:150];
+    [gcdBtn autoSetDimension:ALDimensionHeight toSize:50];
 
 }
 
