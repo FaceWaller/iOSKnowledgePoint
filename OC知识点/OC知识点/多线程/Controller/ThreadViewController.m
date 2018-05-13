@@ -42,6 +42,13 @@
     [self.view addSubview:gcdBtn];
     [gcdBtn addTarget:self action:@selector(gcd) forControlEvents:UIControlEventTouchUpInside];
     
+    //死锁
+    UIButton * badlockBtn = [[UIButton alloc]init];
+    badlockBtn.backgroundColor = [UIColor grayColor];
+    [badlockBtn setTitle:@"死锁" forState:UIControlStateNormal];
+    [self.view addSubview:badlockBtn];
+    [badlockBtn addTarget:self action:@selector(badlock) forControlEvents:UIControlEventTouchUpInside];
+    
     
     
     
@@ -53,12 +60,15 @@
     [nsthreadBtn autoSetDimension:ALDimensionHeight toSize:50];
     
     
-//    [gcdBtn autoAlignAxis:ALAxisVertical toSameAxisOfView:nsthreadBtn];
-    [gcdBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.view withOffset:80];
+    [gcdBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:nsthreadBtn];
     [gcdBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.view withOffset:-20];
     [gcdBtn autoSetDimension:ALDimensionWidth toSize:150];
     [gcdBtn autoSetDimension:ALDimensionHeight toSize:50];
 
+    [badlockBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:nsthreadBtn withOffset:40];
+    [badlockBtn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:nsthreadBtn];
+    [badlockBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:nsthreadBtn];
+    [badlockBtn autoSetDimension:ALDimensionHeight toSize:50];
 }
 
 - (void)nsthreadAction{
@@ -88,9 +98,34 @@
         NSLog(@"gcd同步执行");
     });
     
+    //快速迭代
+    dispatch_apply(7, dispatch_get_global_queue(0, 0), ^(size_t index) {
+        NSLog(@"dispatch_apply：%zd======%@",index, [NSThread currentThread]);
+    });
     
-    
-    
+    //队列组
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"组内第一个操作");
+    });
+    dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"组内第二个操作");
+    });
+    dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"组内第三个操作");
+    });
+    dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"组内第四个操作");
+    });
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        NSLog(@"其他组内任务都已经完成了。");
+    });
+}
+
+- (void)badlock{
+    dispatch_sync(dispatch_get_main_queue(), ^(void){
+        NSLog(@"这里死锁了");
+    });
 }
 
 
