@@ -8,7 +8,7 @@
 //
 
 #import "ThreadViewController.h"
-
+#import "Masonry.h"
 @interface ThreadViewController ()
 
 @end
@@ -29,6 +29,8 @@
     [nsthreadBtn setTitle:@"NSThread" forState:UIControlStateNormal];
     [self.view addSubview:nsthreadBtn];
     [nsthreadBtn addTarget:self action:@selector(nsthreadAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    nsthreadBtn mas_ma
     
     
     //GCD

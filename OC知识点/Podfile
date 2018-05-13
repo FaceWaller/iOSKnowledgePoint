@@ -6,7 +6,7 @@ target 'OC知识点' do
   # use_frameworks!
 
   # Pods for OC知识点
-  pod 'Masonry', '~> 1.1.0'
+  pod 'PureLayout', '~> 3.0.2'
 
   target 'OC知识点Tests' do
     inherit! :search_paths
