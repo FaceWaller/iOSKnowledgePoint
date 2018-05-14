@@ -10,7 +10,8 @@
 #import "ThreadViewController.h"
 #import "PureLayout.h"
 @interface ThreadViewController ()
-
+@property(nonatomic,assign)int tickets;
+@property(nonatomic,strong)NSLock * mutexLock;
 @end
 
 @implementation ThreadViewController
@@ -19,6 +20,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"多线程";
+    self.mutexLock = [[NSLock alloc]init];
     [self setUpUI];
 }
 
@@ -49,6 +51,13 @@
     [self.view addSubview:badlockBtn];
     [badlockBtn addTarget:self action:@selector(badlock) forControlEvents:UIControlEventTouchUpInside];
     
+    //线程锁
+    UIButton * threadLockBtn = [[UIButton alloc]init];
+    threadLockBtn.backgroundColor = [UIColor grayColor];
+    [threadLockBtn setTitle:@"线程锁" forState:UIControlStateNormal];
+    [self.view addSubview:threadLockBtn];
+    [threadLockBtn addTarget:self action:@selector(threadLock) forControlEvents:UIControlEventTouchUpInside];
+    
     
     
     
@@ -64,18 +73,25 @@
     [gcdBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.view withOffset:-20];
     [gcdBtn autoSetDimension:ALDimensionWidth toSize:150];
     [gcdBtn autoSetDimension:ALDimensionHeight toSize:50];
-
+    
     [badlockBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:nsthreadBtn withOffset:40];
     [badlockBtn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:nsthreadBtn];
     [badlockBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:nsthreadBtn];
     [badlockBtn autoSetDimension:ALDimensionHeight toSize:50];
+    
+    
+    [threadLockBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:badlockBtn];
+    [threadLockBtn autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:badlockBtn];
+    [threadLockBtn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:gcdBtn];
+    [threadLockBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:gcdBtn];
+    
 }
 
 - (void)nsthreadAction{
     //NSThread 有三种创建方法
     //第一种
     //    NSThread * thread1 = [[NSThread alloc]initWithTarget:self selector:@selector(thread1:) object:@"thread1"];
-//    [thread1 start];
+    //    [thread1 start];
     
     //方法二，创建好之后自动启动
     //    [NSThread detachNewThreadSelector:@selector(thread1:) toTarget:self withObject:@"thread1"];
@@ -128,6 +144,57 @@
     });
 }
 
+- (void)threadLock{
+    _tickets = 10;
+    //    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    //        [self saleTickets];
+    //    });
+    //
+    //    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    //        [self saleTickets];
+    //    });
+    
+    NSThread * threadOne = [[NSThread alloc] initWithTarget:self selector:@selector(sellTicket) object:nil];
+    //设置线程名称
+    threadOne.name = @"售票员1";
+    
+    //创建售票员2
+    NSThread * threadTwo = [[NSThread alloc] initWithTarget:self selector:@selector(sellTicket) object:nil];
+    threadTwo.name = @"售票员2";
+    
+    //启动线程
+    [threadOne start];
+    [threadTwo start];
+    
+}
+
+
+
+//售票方法
+-(void)sellTicket{
+    //获取当前线程
+    NSThread * currentThread = [NSThread currentThread];
+    
+    //一直卖票,直到票数为0
+    while(1){
+//        @synchronized(self){  //第一种加锁
+        [_mutexLock lock];  //第二种加锁
+            int total = self.tickets;
+            if(self.tickets > 0){
+                //让当前线程睡眠0.1秒
+                [NSThread sleepForTimeInterval:0.1];
+                //打印卖票日志
+                NSLog(@"%@卖出一张票,票号为%d",currentThread,self.tickets);
+                //票数减一
+                self.tickets = --total;
+            }else{
+                NSLog(@"票卖完了.%@",currentThread);
+                break;
+            }
+        [_mutexLock unlock];
+//        }
+    }
+}
 
 
 
