@@ -65,6 +65,7 @@
     BlockTestObj * blockTest = [[BlockTestObj alloc]init];
     
     
+    NSRunLoop * loop = [[NSRunLoop alloc]init];
 }
 
 - (void)setupUI{
