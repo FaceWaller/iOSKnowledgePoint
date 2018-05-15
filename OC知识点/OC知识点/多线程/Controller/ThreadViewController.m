@@ -58,6 +58,12 @@
     [self.view addSubview:threadLockBtn];
     [threadLockBtn addTarget:self action:@selector(threadLock) forControlEvents:UIControlEventTouchUpInside];
     
+    //线程依赖
+    UIButton * threadRelyBtn = [[UIButton alloc]init];
+    threadRelyBtn.backgroundColor = [UIColor grayColor];
+    [threadRelyBtn setTitle:@"线程依赖" forState:UIControlStateNormal];
+    [self.view addSubview:threadRelyBtn];
+    [threadRelyBtn addTarget:self action:@selector(threadRely) forControlEvents:UIControlEventTouchUpInside];
     
     
     
@@ -84,6 +90,11 @@
     [threadLockBtn autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:badlockBtn];
     [threadLockBtn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:gcdBtn];
     [threadLockBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:gcdBtn];
+    
+    [threadRelyBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:badlockBtn withOffset:40];
+    [threadRelyBtn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:badlockBtn];
+    [threadRelyBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:badlockBtn];
+    [threadRelyBtn autoSetDimension:ALDimensionHeight toSize:50];
     
 }
 
@@ -196,6 +207,32 @@
     }
 }
 
+
+//线程依赖
+- (void)threadRely{
+    
+    NSOperationQueue * queue = [[NSOperationQueue alloc]init];
+    
+    //创建三个操作
+    NSOperation * a = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"打印a");
+    }];
+    NSOperation * b = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"打印b");
+    }];
+    NSOperation * c = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"打印c");
+    }];
+    
+    //添加依赖
+    [a addDependency:b];
+    [b addDependency:c];
+    
+    [queue addOperation:a];
+    [queue addOperation:b];
+    [queue addOperation:c];
+    
+}
 
 
 @end
