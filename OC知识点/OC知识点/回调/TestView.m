@@ -10,7 +10,6 @@
 
 @implementation TestView
 
-
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [super touchesBegan:touches withEvent:event];
 //    [self.delegate changeBackgroundColor]; //代理方法

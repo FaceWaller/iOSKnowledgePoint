@@ -14,7 +14,7 @@ typedef void(^changeColor)(UIColor * color);
 - (void)changeBackgroundColor;
 @end
 
-@interface TestView : UIView
+@interface TestView : UITextView
 @property(nonatomic,weak)id<ChangeColor> delegate;
 
 /*block两种写法*/

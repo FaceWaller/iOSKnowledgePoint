@@ -7,47 +7,79 @@
 //
 
 #import "MainViewController.h"
+#import "PureLayout.h"
 #import "TestView.h"
 #import "BlockTestObj.h"
 #import "ThreadViewController.h"
 @interface MainViewController ()<ChangeColor>
+@property(nonatomic,weak)TestView * testView;
+@property(nonatomic,weak)UIButton * threadBtn;
 @end
 
 @implementation MainViewController
+
+- (TestView *)testView{
+    if (!_testView) {
+        
+        TestView * testView = [[TestView alloc]init];
+        testView.text = @"回调";
+        testView.textAlignment = NSTextAlignmentCenter;
+        //    testView.delegate = self;
+        
+        testView.changeBackgroundColor = ^(UIColor *color) {
+            self.view.backgroundColor = color;
+        };
+        testView.backgroundColor = [UIColor grayColor];
+        [self.view addSubview:testView];
+        _testView = testView;
+    }
+    return _testView;
+}
+
+- (UIButton *)threadBtn{
+    if (!_threadBtn) {
+        
+        #pragma mark 多线程
+        UIButton * btn = [[UIButton alloc]init];
+        [btn setTitle:@"多线程" forState:UIControlStateNormal];
+        [self.view addSubview:btn];
+        btn.backgroundColor = [UIColor grayColor];
+        [btn addTarget:self action:@selector(testThread) forControlEvents:UIControlEventTouchUpInside];
+        _threadBtn = btn;
+    }
+    return _threadBtn;
+    
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
     self.navigationItem.title = @"iOS知识点";
     
-#pragma mark 代理和block回调
-     /*通过代理和block回调，点击testView改变根视图背景颜色*/
-    
-    TestView * testView = [[TestView alloc]initWithFrame:CGRectMake(50, 100, 50, 50)];
-//    testView.delegate = self;
-    
-    testView.changeBackgroundColor = ^(UIColor *color) {
-        self.view.backgroundColor = color;
-    };
-    testView.backgroundColor = [UIColor redColor];
-    [self.view addSubview:testView];
+    [self setupUI];
     
     
-
     
 #pragma mark block
     BlockTestObj * blockTest = [[BlockTestObj alloc]init];
     
     
+}
+
+- (void)setupUI{
+    //布局
+    [self.testView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.view withOffset:80];
+    [self.testView autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.view withOffset:20];
+    [self.testView autoSetDimension:ALDimensionWidth toSize:150];
+    [self.testView autoSetDimension:ALDimensionHeight toSize:50];
     
-
-#pragma mark 多线程
-    UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake(150, 100, 100, 50)];
-    [btn setTitle:@"多线程" forState:UIControlStateNormal];
-    [self.view addSubview:btn];
-    btn.backgroundColor = [UIColor blueColor];
-    [btn addTarget:self action:@selector(testThread) forControlEvents:UIControlEventTouchUpInside];
-
+    [self.threadBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.testView];
+    [self.threadBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.view withOffset:-20];
+    [self.threadBtn autoSetDimension:ALDimensionWidth toSize:150];
+    [self.threadBtn autoSetDimension:ALDimensionHeight toSize:50];
+    
+    
 }
 
 - (void)testThread{
