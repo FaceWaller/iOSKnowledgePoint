@@ -14,6 +14,7 @@
 @interface MainViewController ()<ChangeColor>
 @property(nonatomic,weak)TestView * testView;
 @property(nonatomic,weak)UIButton * threadBtn;
+@property(nonatomic,weak)UIButton * timerBtn;
 @end
 
 @implementation MainViewController
@@ -48,8 +49,18 @@
         _threadBtn = btn;
     }
     return _threadBtn;
-    
-    
+}
+
+- (UIButton *)timerBtn{
+    if (!_timerBtn) {
+        UIButton * btn = [[UIButton alloc]init];
+        [btn setTitle:@"NSTimer" forState:UIControlStateNormal];
+        [self.view addSubview:btn];
+        btn.backgroundColor = [UIColor grayColor];
+        [btn addTarget:self action:@selector(timer) forControlEvents:UIControlEventTouchUpInside];
+        _timerBtn = btn;
+    }
+    return _timerBtn;
 }
 
 - (void)viewDidLoad {
@@ -81,6 +92,11 @@
     [self.threadBtn autoSetDimension:ALDimensionHeight toSize:50];
     
     
+    [self.timerBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.testView withOffset:50];
+    [self.timerBtn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.testView];
+    [self.timerBtn autoSetDimension:ALDimensionWidth toSize:150];
+    [self.timerBtn autoSetDimension:ALDimensionHeight toSize:50];
+    
 }
 
 - (void)testThread{
@@ -94,5 +110,19 @@
     self.view.backgroundColor = [UIColor blueColor];
 }
 
+
+- (void)timer{
+    
+    //线程繁忙的时候，NSTimer会不准
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(logTime) userInfo:nil repeats:YES];
+
+}
+- (void)logTime{
+    int count = 0;
+    for (int i = 0; i < 1000000000; i++) {
+        count += i;
+    }
+    NSLog(@"time test");
+}
 
 @end
