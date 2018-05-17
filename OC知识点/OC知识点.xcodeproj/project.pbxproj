@@ -20,6 +20,7 @@
 		E74FD91B20A6D4E900793950 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = E74FD91A20A6D4E900793950 /* TestView.m */; };
 		E79004E420A81FE700AE02F3 /* BlockTestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = E79004E320A81FE700AE02F3 /* BlockTestObj.m */; };
 		E79004F220A8360000AE02F3 /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E79004F120A8360000AE02F3 /* ThreadViewController.m */; };
+		E7DA9D9C20AC89B4009E016A /* RunLoopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DA9D9820AC89B4009E016A /* RunLoopViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,10 +57,10 @@
 		E74FD8EF20A6D17000793950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E74FD8F020A6D17000793950 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E74FD8F620A6D17000793950 /* OC知识点Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OC知识点Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E74FD8FA20A6D17000793950 /* OC___Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OC___Tests.m; sourceTree = "<group>"; };
+		E74FD8FA20A6D17000793950 /* OC___Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "OC___Tests.m"; sourceTree = "<group>"; };
 		E74FD8FC20A6D17000793950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E74FD90120A6D17000793950 /* OC知识点UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OC知识点UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E74FD90520A6D17000793950 /* OC___UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OC___UITests.m; sourceTree = "<group>"; };
+		E74FD90520A6D17000793950 /* OC___UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "OC___UITests.m"; sourceTree = "<group>"; };
 		E74FD90720A6D17000793950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E74FD91320A6D40300793950 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		E74FD91420A6D40300793950 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -69,6 +70,8 @@
 		E79004E320A81FE700AE02F3 /* BlockTestObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockTestObj.m; sourceTree = "<group>"; };
 		E79004F020A8360000AE02F3 /* ThreadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadViewController.h; sourceTree = "<group>"; };
 		E79004F120A8360000AE02F3 /* ThreadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadViewController.m; sourceTree = "<group>"; };
+		E7DA9D9820AC89B4009E016A /* RunLoopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunLoopViewController.m; sourceTree = "<group>"; };
+		E7DA9D9920AC89B4009E016A /* RunLoopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunLoopViewController.h; sourceTree = "<group>"; };
 		F4F7C172359C07C20CE63310 /* Pods-OC知识点.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OC知识点.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OC知识点/Pods-OC知识点.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +155,7 @@
 				E74FD8E220A6D16E00793950 /* AppDelegate.m */,
 				E74FD91320A6D40300793950 /* MainViewController.h */,
 				E74FD91420A6D40300793950 /* MainViewController.m */,
+				E7DA9D9620AC89B4009E016A /* RunLoop */,
 				E79004E920A832CF00AE02F3 /* 多线程 */,
 				E79004E720A832AB00AE02F3 /* 回调 */,
 				E79004E520A8327900AE02F3 /* Block */,
@@ -230,6 +234,39 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E7DA9D9620AC89B4009E016A /* RunLoop */ = {
+			isa = PBXGroup;
+			children = (
+				E7DA9D9720AC89B4009E016A /* Controller */,
+				E7DA9D9A20AC89B4009E016A /* Model */,
+				E7DA9D9B20AC89B4009E016A /* View */,
+			);
+			path = RunLoop;
+			sourceTree = "<group>";
+		};
+		E7DA9D9720AC89B4009E016A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E7DA9D9920AC89B4009E016A /* RunLoopViewController.h */,
+				E7DA9D9820AC89B4009E016A /* RunLoopViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E7DA9D9A20AC89B4009E016A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E7DA9D9B20AC89B4009E016A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,6 +545,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7DA9D9C20AC89B4009E016A /* RunLoopViewController.m in Sources */,
 				E79004F220A8360000AE02F3 /* ThreadViewController.m in Sources */,
 				E79004E420A81FE700AE02F3 /* BlockTestObj.m in Sources */,
 				E74FD91B20A6D4E900793950 /* TestView.m in Sources */,
@@ -678,7 +716,10 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "OC知识点/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.baidu.aa--.OC---";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -694,7 +735,10 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "OC知识点/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.baidu.aa--.OC---";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -709,7 +753,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "OC知识点Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.baidu.aa--.OC---Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -724,7 +772,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "OC知识点Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.baidu.aa--.OC---Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -738,7 +790,11 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "OC知识点UITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.baidu.aa--.OC---UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -752,7 +808,11 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "OC知识点UITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.baidu.aa--.OC---UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

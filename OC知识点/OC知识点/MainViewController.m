@@ -11,9 +11,11 @@
 #import "TestView.h"
 #import "BlockTestObj.h"
 #import "ThreadViewController.h"
+#import "RunLoopViewController.h"
 @interface MainViewController ()<ChangeColor>
 @property(nonatomic,weak)TestView * testView;
 @property(nonatomic,weak)UIButton * threadBtn;
+@property(nonatomic,weak)UIButton * runLoopBtn;
 @property(nonatomic,weak)UIButton * timerBtn;
 @end
 
@@ -63,6 +65,18 @@
     return _timerBtn;
 }
 
+- (UIButton *)runLoopBtn{
+    if (!_runLoopBtn) {
+        UIButton * btn = [[UIButton alloc]init];
+        [btn setTitle:@"RunLoop" forState:UIControlStateNormal];
+        [self.view addSubview:btn];
+        btn.backgroundColor = [UIColor grayColor];
+        [btn addTarget:self action:@selector(runLoop) forControlEvents:UIControlEventTouchUpInside];
+        _runLoopBtn = btn;
+    }
+    return _runLoopBtn;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
@@ -76,7 +90,7 @@
     BlockTestObj * blockTest = [[BlockTestObj alloc]init];
     
     
-    NSRunLoop * loop = [[NSRunLoop alloc]init];
+#pragma mark RunLoop
 }
 
 - (void)setupUI{
@@ -96,6 +110,11 @@
     [self.timerBtn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.testView];
     [self.timerBtn autoSetDimension:ALDimensionWidth toSize:150];
     [self.timerBtn autoSetDimension:ALDimensionHeight toSize:50];
+    
+    [self.runLoopBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.timerBtn];
+    [self.runLoopBtn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.threadBtn];
+    [self.runLoopBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.threadBtn];
+    [self.runLoopBtn autoSetDimension:ALDimensionHeight toSize:50];
     
 }
 
@@ -123,6 +142,12 @@
         count += i;
     }
     NSLog(@"time test");
+}
+
+
+- (void)runLoop{
+    RunLoopViewController * runloop = [[RunLoopViewController alloc]init];
+    [self.navigationController pushViewController:runloop animated:YES];
 }
 
 @end

@@ -9,6 +9,7 @@
 
 #import "ThreadViewController.h"
 #import "PureLayout.h"
+
 @interface ThreadViewController ()
 @property(nonatomic,assign)int tickets;
 @property(nonatomic,strong)NSLock * mutexLock;
@@ -143,6 +144,7 @@
     });
     dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
         NSLog(@"组内第四个操作");
+        
     });
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         NSLog(@"其他组内任务都已经完成了。");
