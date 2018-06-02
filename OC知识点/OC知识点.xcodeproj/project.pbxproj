@@ -21,6 +21,10 @@
 		E79004E420A81FE700AE02F3 /* BlockTestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = E79004E320A81FE700AE02F3 /* BlockTestObj.m */; };
 		E79004F220A8360000AE02F3 /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E79004F120A8360000AE02F3 /* ThreadViewController.m */; };
 		E7DA9D9C20AC89B4009E016A /* RunLoopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DA9D9820AC89B4009E016A /* RunLoopViewController.m */; };
+		E7F135D420B5B4A3004EEF3D /* StudyMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F135D320B5B4A3004EEF3D /* StudyMessageViewController.m */; };
+		E7F135D720B5B736004EEF3D /* StudyMessageObj.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F135D620B5B736004EEF3D /* StudyMessageObj.m */; };
+		E7F135DB20B703DA004EEF3D /* StudyMessageSunObj.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F135DA20B703DA004EEF3D /* StudyMessageSunObj.m */; };
+		E7F135DE20B70B10004EEF3D /* StudyMessageTar.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F135DD20B70B10004EEF3D /* StudyMessageTar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +76,14 @@
 		E79004F120A8360000AE02F3 /* ThreadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadViewController.m; sourceTree = "<group>"; };
 		E7DA9D9820AC89B4009E016A /* RunLoopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunLoopViewController.m; sourceTree = "<group>"; };
 		E7DA9D9920AC89B4009E016A /* RunLoopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunLoopViewController.h; sourceTree = "<group>"; };
+		E7F135D220B5B4A3004EEF3D /* StudyMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudyMessageViewController.h; sourceTree = "<group>"; };
+		E7F135D320B5B4A3004EEF3D /* StudyMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudyMessageViewController.m; sourceTree = "<group>"; };
+		E7F135D520B5B736004EEF3D /* StudyMessageObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudyMessageObj.h; sourceTree = "<group>"; };
+		E7F135D620B5B736004EEF3D /* StudyMessageObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudyMessageObj.m; sourceTree = "<group>"; };
+		E7F135D920B703DA004EEF3D /* StudyMessageSunObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudyMessageSunObj.h; sourceTree = "<group>"; };
+		E7F135DA20B703DA004EEF3D /* StudyMessageSunObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudyMessageSunObj.m; sourceTree = "<group>"; };
+		E7F135DC20B70B10004EEF3D /* StudyMessageTar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudyMessageTar.h; sourceTree = "<group>"; };
+		E7F135DD20B70B10004EEF3D /* StudyMessageTar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudyMessageTar.m; sourceTree = "<group>"; };
 		F4F7C172359C07C20CE63310 /* Pods-OC知识点.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OC知识点.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OC知识点/Pods-OC知识点.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,6 +167,7 @@
 				E74FD8E220A6D16E00793950 /* AppDelegate.m */,
 				E74FD91320A6D40300793950 /* MainViewController.h */,
 				E74FD91420A6D40300793950 /* MainViewController.m */,
+				E7F135CE20B5B494004EEF3D /* 消息机制 */,
 				E7DA9D9620AC89B4009E016A /* RunLoop */,
 				E79004E920A832CF00AE02F3 /* 多线程 */,
 				E79004E720A832AB00AE02F3 /* 回调 */,
@@ -263,6 +276,45 @@
 			sourceTree = "<group>";
 		};
 		E7DA9D9B20AC89B4009E016A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E7F135CE20B5B494004EEF3D /* 消息机制 */ = {
+			isa = PBXGroup;
+			children = (
+				E7F135CF20B5B494004EEF3D /* Controller */,
+				E7F135D020B5B494004EEF3D /* Model */,
+				E7F135D120B5B494004EEF3D /* View */,
+			);
+			path = "消息机制";
+			sourceTree = "<group>";
+		};
+		E7F135CF20B5B494004EEF3D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E7F135D220B5B4A3004EEF3D /* StudyMessageViewController.h */,
+				E7F135D320B5B4A3004EEF3D /* StudyMessageViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E7F135D020B5B494004EEF3D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E7F135D520B5B736004EEF3D /* StudyMessageObj.h */,
+				E7F135D620B5B736004EEF3D /* StudyMessageObj.m */,
+				E7F135D920B703DA004EEF3D /* StudyMessageSunObj.h */,
+				E7F135DA20B703DA004EEF3D /* StudyMessageSunObj.m */,
+				E7F135DC20B70B10004EEF3D /* StudyMessageTar.h */,
+				E7F135DD20B70B10004EEF3D /* StudyMessageTar.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E7F135D120B5B494004EEF3D /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -548,9 +600,13 @@
 				E7DA9D9C20AC89B4009E016A /* RunLoopViewController.m in Sources */,
 				E79004F220A8360000AE02F3 /* ThreadViewController.m in Sources */,
 				E79004E420A81FE700AE02F3 /* BlockTestObj.m in Sources */,
+				E7F135DE20B70B10004EEF3D /* StudyMessageTar.m in Sources */,
+				E7F135D720B5B736004EEF3D /* StudyMessageObj.m in Sources */,
 				E74FD91B20A6D4E900793950 /* TestView.m in Sources */,
+				E7F135D420B5B4A3004EEF3D /* StudyMessageViewController.m in Sources */,
 				E74FD8F120A6D17000793950 /* main.m in Sources */,
 				E74FD91520A6D40300793950 /* MainViewController.m in Sources */,
+				E7F135DB20B703DA004EEF3D /* StudyMessageSunObj.m in Sources */,
 				E74FD8E320A6D16E00793950 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

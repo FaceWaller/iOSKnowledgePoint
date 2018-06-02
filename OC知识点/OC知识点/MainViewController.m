@@ -12,11 +12,17 @@
 #import "BlockTestObj.h"
 #import "ThreadViewController.h"
 #import "RunLoopViewController.h"
+#import "StudyMessageViewController.h"
+#import <objc/runtime.h>
+#import <objc/message.h>
 @interface MainViewController ()<ChangeColor>
 @property(nonatomic,weak)TestView * testView;
 @property(nonatomic,weak)UIButton * threadBtn;
 @property(nonatomic,weak)UIButton * runLoopBtn;
 @property(nonatomic,weak)UIButton * timerBtn;
+@property(nonatomic,weak)UIButton * SELIMPBtn;
+@property(nonatomic,weak)UIButton * MessageBtn;
+
 @end
 
 @implementation MainViewController
@@ -77,6 +83,30 @@
     return _runLoopBtn;
 }
 
+- (UIButton *)SELIMPBtn{
+    if (!_SELIMPBtn) {
+        UIButton * btn = [[UIButton alloc]init];
+        [btn setTitle:@"SELIMP" forState:UIControlStateNormal];
+        [self.view addSubview:btn];
+        btn.backgroundColor = [UIColor grayColor];
+        [btn addTarget:self action:@selector(SELIMP) forControlEvents:UIControlEventTouchUpInside];
+        _SELIMPBtn = btn;
+    }
+    return _SELIMPBtn;
+}
+
+- (UIButton *)MessageBtn{
+    if (!_MessageBtn) {
+        UIButton * btn = [[UIButton alloc]init];
+        [btn setTitle:@"StudyMessage" forState:UIControlStateNormal];
+        [self.view addSubview:btn];
+        btn.backgroundColor = [UIColor grayColor];
+        [btn addTarget:self action:@selector(StudyMessage) forControlEvents:UIControlEventTouchUpInside];
+        _MessageBtn = btn;
+    }
+    return _MessageBtn;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
@@ -95,7 +125,7 @@
 
 - (void)setupUI{
     //布局
-    [self.testView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.view withOffset:80];
+    [self.testView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.view withOffset:100];
     [self.testView autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.view withOffset:20];
     [self.testView autoSetDimension:ALDimensionWidth toSize:150];
     [self.testView autoSetDimension:ALDimensionHeight toSize:50];
@@ -115,6 +145,16 @@
     [self.runLoopBtn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.threadBtn];
     [self.runLoopBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.threadBtn];
     [self.runLoopBtn autoSetDimension:ALDimensionHeight toSize:50];
+    
+    [self.SELIMPBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.timerBtn withOffset:50];
+    [self.SELIMPBtn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.timerBtn];
+    [self.SELIMPBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.timerBtn];
+    [self.SELIMPBtn autoSetDimension:ALDimensionHeight toSize:50];
+    
+    [self.MessageBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.SELIMPBtn];
+    [self.MessageBtn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.runLoopBtn];
+    [self.MessageBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.runLoopBtn];
+    [self.MessageBtn autoSetDimension:ALDimensionHeight toSize:50];
     
 }
 
@@ -149,5 +189,21 @@
     RunLoopViewController * runloop = [[RunLoopViewController alloc]init];
     [self.navigationController pushViewController:runloop animated:YES];
 }
+
+- (void)SELIMP{
+    SEL selector = @selector(test);
+    IMP imp = [self methodForSelector:selector]; //IMP 就是函数指针
+    imp();
+}
+
+- (void)test{
+    NSLog(@"test");
+}
+
+- (void)StudyMessage{
+    StudyMessageViewController * studyMessage = [[StudyMessageViewController alloc]init];
+    [self.navigationController pushViewController:studyMessage animated:YES];
+}
+
 
 @end
