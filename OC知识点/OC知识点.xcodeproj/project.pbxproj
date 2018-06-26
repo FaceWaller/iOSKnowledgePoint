@@ -18,8 +18,10 @@
 		E74FD90620A6D17000793950 /* OC___UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E74FD90520A6D17000793950 /* OC___UITests.m */; };
 		E74FD91520A6D40300793950 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E74FD91420A6D40300793950 /* MainViewController.m */; };
 		E74FD91B20A6D4E900793950 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = E74FD91A20A6D4E900793950 /* TestView.m */; };
+		E77D032220CBE54B007080E0 /* customDrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E77D032120CBE54B007080E0 /* customDrawingView.m */; };
 		E79004E420A81FE700AE02F3 /* BlockTestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = E79004E320A81FE700AE02F3 /* BlockTestObj.m */; };
 		E79004F220A8360000AE02F3 /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E79004F120A8360000AE02F3 /* ThreadViewController.m */; };
+		E7CE5B7520C8413800E72231 /* CoreAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CE5B7420C8413800E72231 /* CoreAnimationViewController.m */; };
 		E7DA9D9C20AC89B4009E016A /* RunLoopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DA9D9820AC89B4009E016A /* RunLoopViewController.m */; };
 		E7F135D420B5B4A3004EEF3D /* StudyMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F135D320B5B4A3004EEF3D /* StudyMessageViewController.m */; };
 		E7F135D720B5B736004EEF3D /* StudyMessageObj.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F135D620B5B736004EEF3D /* StudyMessageObj.m */; };
@@ -70,10 +72,14 @@
 		E74FD91420A6D40300793950 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		E74FD91920A6D4E900793950 /* TestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
 		E74FD91A20A6D4E900793950 /* TestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
+		E77D032020CBE54B007080E0 /* customDrawingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = customDrawingView.h; sourceTree = "<group>"; };
+		E77D032120CBE54B007080E0 /* customDrawingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = customDrawingView.m; sourceTree = "<group>"; };
 		E79004E220A81FE700AE02F3 /* BlockTestObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockTestObj.h; sourceTree = "<group>"; };
 		E79004E320A81FE700AE02F3 /* BlockTestObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockTestObj.m; sourceTree = "<group>"; };
 		E79004F020A8360000AE02F3 /* ThreadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadViewController.h; sourceTree = "<group>"; };
 		E79004F120A8360000AE02F3 /* ThreadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadViewController.m; sourceTree = "<group>"; };
+		E7CE5B7320C8413800E72231 /* CoreAnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreAnimationViewController.h; sourceTree = "<group>"; };
+		E7CE5B7420C8413800E72231 /* CoreAnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreAnimationViewController.m; sourceTree = "<group>"; };
 		E7DA9D9820AC89B4009E016A /* RunLoopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunLoopViewController.m; sourceTree = "<group>"; };
 		E7DA9D9920AC89B4009E016A /* RunLoopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunLoopViewController.h; sourceTree = "<group>"; };
 		E7F135D220B5B4A3004EEF3D /* StudyMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudyMessageViewController.h; sourceTree = "<group>"; };
@@ -167,6 +173,7 @@
 				E74FD8E220A6D16E00793950 /* AppDelegate.m */,
 				E74FD91320A6D40300793950 /* MainViewController.h */,
 				E74FD91420A6D40300793950 /* MainViewController.m */,
+				E7CE5B6F20C8411400E72231 /* CoreAnimation */,
 				E7F135CE20B5B494004EEF3D /* 消息机制 */,
 				E7DA9D9620AC89B4009E016A /* RunLoop */,
 				E79004E920A832CF00AE02F3 /* 多线程 */,
@@ -247,6 +254,42 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E7CE5B6F20C8411400E72231 /* CoreAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				E7CE5B7020C8411400E72231 /* Controller */,
+				E7CE5B7120C8411400E72231 /* Model */,
+				E7CE5B7220C8411400E72231 /* View */,
+			);
+			name = CoreAnimation;
+			path = "OC知识点/CoreAnimation";
+			sourceTree = SOURCE_ROOT;
+		};
+		E7CE5B7020C8411400E72231 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E7CE5B7320C8413800E72231 /* CoreAnimationViewController.h */,
+				E7CE5B7420C8413800E72231 /* CoreAnimationViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E7CE5B7120C8411400E72231 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E7CE5B7220C8411400E72231 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E77D032020CBE54B007080E0 /* customDrawingView.h */,
+				E77D032120CBE54B007080E0 /* customDrawingView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E7DA9D9620AC89B4009E016A /* RunLoop */ = {
@@ -600,7 +643,9 @@
 				E7DA9D9C20AC89B4009E016A /* RunLoopViewController.m in Sources */,
 				E79004F220A8360000AE02F3 /* ThreadViewController.m in Sources */,
 				E79004E420A81FE700AE02F3 /* BlockTestObj.m in Sources */,
+				E77D032220CBE54B007080E0 /* customDrawingView.m in Sources */,
 				E7F135DE20B70B10004EEF3D /* StudyMessageTar.m in Sources */,
+				E7CE5B7520C8413800E72231 /* CoreAnimationViewController.m in Sources */,
 				E7F135D720B5B736004EEF3D /* StudyMessageObj.m in Sources */,
 				E74FD91B20A6D4E900793950 /* TestView.m in Sources */,
 				E7F135D420B5B4A3004EEF3D /* StudyMessageViewController.m in Sources */,

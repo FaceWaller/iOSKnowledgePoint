@@ -13,6 +13,7 @@
 #import "ThreadViewController.h"
 #import "RunLoopViewController.h"
 #import "StudyMessageViewController.h"
+#import "CoreAnimationViewController.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
 @interface MainViewController ()<ChangeColor>
@@ -22,6 +23,8 @@
 @property(nonatomic,weak)UIButton * timerBtn;
 @property(nonatomic,weak)UIButton * SELIMPBtn;
 @property(nonatomic,weak)UIButton * MessageBtn;
+@property(nonatomic,weak)UIButton * CoreAnimationBtn;
+
 
 @end
 
@@ -43,6 +46,21 @@
         _testView = testView;
     }
     return _testView;
+}
+
+- (UIButton *)CoreAnimationBtn{
+    if (!_CoreAnimationBtn) {
+        
+        #pragma mark CoreAnimation探究
+        UIButton * btn = [[UIButton alloc]init];
+        [btn setTitle:@"CoreAnimation" forState:UIControlStateNormal];
+        [self.view addSubview:btn];
+        btn.backgroundColor = [UIColor grayColor];
+        [btn addTarget:self action:@selector(coreAnimation) forControlEvents:UIControlEventTouchUpInside];
+        _CoreAnimationBtn = btn;
+        
+    }
+    return _CoreAnimationBtn;
 }
 
 - (UIButton *)threadBtn{
@@ -156,6 +174,11 @@
     [self.MessageBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.runLoopBtn];
     [self.MessageBtn autoSetDimension:ALDimensionHeight toSize:50];
     
+    [self.CoreAnimationBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.SELIMPBtn  withOffset:50];
+    [self.CoreAnimationBtn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.SELIMPBtn];
+    [self.CoreAnimationBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.SELIMPBtn];
+    [self.CoreAnimationBtn autoSetDimension:ALDimensionHeight toSize:50];
+    
 }
 
 - (void)testThread{
@@ -205,5 +228,9 @@
     [self.navigationController pushViewController:studyMessage animated:YES];
 }
 
+- (void)coreAnimation{
+    CoreAnimationViewController * coreAnimation = [[CoreAnimationViewController alloc]init];
+    [self.navigationController pushViewController:coreAnimation animated:YES];
+}
 
 @end
