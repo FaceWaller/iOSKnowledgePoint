@@ -19,6 +19,8 @@
 @property(nonatomic,weak)UIView * delegateLayerView;
 @property(nonatomic,weak)UIView * anchorPointView;
 @property(nonatomic,weak)UIView * visionEffectView;
+@property(nonatomic,weak)UIView * affineTransformView;
+@property(nonatomic,weak)UIView * transform3DView;
 @property(nonatomic,weak)customDrawingView * customDrawingView;
 @end
 
@@ -65,6 +67,70 @@
     
     //视觉效果
     [self visionEffect];
+    
+    //仿射变换
+    [self affineTransform];
+    
+    //3D变换
+    [self transform3D];
+    
+}
+
+- (void)transform3D{
+
+    UIView * view = [[UIView alloc]init];
+    self.transform3DView = view;
+    [self.scrollView addSubview:view];
+    view.backgroundColor = [UIColor blueColor];
+    view.layer.contents = (__bridge id)[UIImage imageNamed:@"mask"].CGImage;
+    
+    
+    
+    CATransform3D transform = CATransform3DIdentity;
+    transform.m34 = -1.0/500.0;
+    transform = CATransform3DRotate(transform, M_PI_4, 0, 1, 0);
+    view.layer.transform = transform;
+    
+    
+    
+    
+    //布局
+    [view autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.visionEffectView withOffset:50];
+    [view autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.visionEffectView withOffset:10];
+    [view autoSetDimension:ALDimensionWidth toSize:100];
+    [view autoSetDimension:ALDimensionHeight toSize:100];
+    
+}
+
+- (void)affineTransform{
+    UIView * view = [[UIView alloc]init];
+    self.affineTransformView = view;
+    [self.scrollView addSubview:view];
+    view.backgroundColor = [UIColor whiteColor];
+    
+    
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    
+    //比例变为0.8
+    transform = CGAffineTransformScale(transform, 0.8, 0.8);
+    
+    //旋转30度
+    transform = CGAffineTransformRotate(transform, M_PI/180.0*20.0);
+    
+    //平移100
+    transform = CGAffineTransformTranslate(transform, 100, 0);
+    
+    view.layer.affineTransform = transform;
+    
+
+    
+    
+    
+    //布局
+    [view autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.anchorPointView withOffset:70];
+    [view autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.anchorPointView withOffset:50];
+    [view autoSetDimension:ALDimensionWidth toSize:140];
+    [view autoSetDimension:ALDimensionHeight toSize:140];
 }
 
 - (void)visionEffect{
