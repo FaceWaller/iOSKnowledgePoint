@@ -21,6 +21,7 @@
 @property(nonatomic,weak)UIView * visionEffectView;
 @property(nonatomic,weak)UIView * affineTransformView;
 @property(nonatomic,weak)UIView * transform3DView;
+@property(nonatomic,weak)UIView * CAShapeLayerView;
 @property(nonatomic,weak)customDrawingView * customDrawingView;
 @end
 
@@ -74,7 +75,68 @@
     //3D变换
     [self transform3D];
     
+    
+    //专属图层
+    //CAShapeLayer
+    [self CAShapeLayer];
+    
 }
+
+- (void)CAShapeLayer{
+    
+    UIView * view = [[UIView alloc]init];
+    self.CAShapeLayerView = view;
+    [self.scrollView addSubview:view];
+    view.backgroundColor = [UIColor whiteColor];
+    
+    
+  
+    
+    //画个圆角矩形
+    CGRect rect = CGRectMake(200, 100, 150, 150);
+    CGSize radii = CGSizeMake(20, 20);
+    UIRectCorner corners = UIRectCornerTopRight | UIRectCornerBottomRight | UIRectCornerBottomLeft;
+    UIBezierPath * path = [UIBezierPath bezierPathWithRoundedRect:rect byRoundingCorners:corners cornerRadii:radii];
+    
+    
+    //画个小人
+//    UIBezierPath *path = [[UIBezierPath alloc]init];
+    [path moveToPoint:CGPointMake(150, 100)];
+    [path addArcWithCenter:CGPointMake(125, 100) radius:25 startAngle:0 endAngle:2*M_PI clockwise:YES];
+    [path moveToPoint:CGPointMake(125, 125)];
+    [path addLineToPoint:CGPointMake(125, 175)];
+    [path moveToPoint:CGPointMake(100, 225)];
+    [path addLineToPoint:CGPointMake(125, 175)];
+    [path addLineToPoint:CGPointMake(150, 225)];
+    [path moveToPoint:CGPointMake(75, 150)];
+    [path addLineToPoint:CGPointMake(175, 150)];
+    
+    
+    CAShapeLayer * shapeLayer= [CAShapeLayer layer];
+    shapeLayer.strokeColor = [UIColor blackColor].CGColor;
+    shapeLayer.fillColor = [UIColor clearColor].CGColor;
+    shapeLayer.lineWidth = 5;
+    shapeLayer.lineJoin = kCALineJoinRound;
+    shapeLayer.lineCap = kCALineCapRound;
+    shapeLayer.path = path.CGPath;
+//    shapeLayer.path = rectPath.CGPath;
+    
+    [view.layer addSublayer:shapeLayer];
+    
+    
+    
+    //布局
+    [view autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.transform3DView withOffset:100];
+    [view autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.visionEffectView withOffset:-20];
+    [view autoSetDimension:ALDimensionWidth toSize:360];
+    [view autoSetDimension:ALDimensionHeight toSize:360];
+    
+    
+    
+    
+}
+
+
 
 - (void)transform3D{
 
@@ -84,15 +146,11 @@
     view.backgroundColor = [UIColor blueColor];
     view.layer.contents = (__bridge id)[UIImage imageNamed:@"mask"].CGImage;
     
-    
-    
     CATransform3D transform = CATransform3DIdentity;
     transform.m34 = -1.0/500.0;
     transform = CATransform3DRotate(transform, M_PI_4, 0, 1, 0);
     view.layer.transform = transform;
-    
-    
-    
+
     
     //布局
     [view autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.visionEffectView withOffset:50];
