@@ -22,6 +22,7 @@
 @property(nonatomic,weak)UIView * affineTransformView;
 @property(nonatomic,weak)UIView * transform3DView;
 @property(nonatomic,weak)UIView * CAShapeLayerView;
+@property(nonatomic,weak)UIView * CATextLayerView;
 @property(nonatomic,weak)customDrawingView * customDrawingView;
 @end
 
@@ -77,8 +78,53 @@
     
     
     //专属图层
+    
     //CAShapeLayer
     [self CAShapeLayer];
+    
+    //CATextLayer
+    [self CATextLayer];
+    
+}
+
+- (void)CATextLayer{
+    UIView * view = [[UIView alloc]init];
+    self.CATextLayerView = view;
+    [self.scrollView addSubview:view];
+    view.backgroundColor = [UIColor whiteColor];
+    
+    
+    //绘制文字
+    CATextLayer * textLayer = [CATextLayer layer];
+    textLayer.backgroundColor = [UIColor grayColor].CGColor;
+    textLayer.frame = CGRectMake(10, 10, 300, 300);
+    [view.layer addSublayer:textLayer];
+    textLayer.foregroundColor = [UIColor blackColor].CGColor;
+    textLayer.wrapped = YES;
+    
+    //设置分辨率
+    textLayer.contentsScale = [UIScreen mainScreen].scale;
+    
+    
+    UIFont * font = [UIFont systemFontOfSize:15];
+    CFStringRef fontName = (__bridge CFStringRef)font.fontName;
+    CGFontRef fontRef = CGFontCreateWithFontName(fontName);
+    textLayer.font = fontRef;
+    textLayer.fontSize = font.pointSize;
+    CGFontRelease(fontRef);
+    
+    NSString * text = @"Hello World,哈哈哈哈哈";
+    textLayer.string = text;
+    
+    
+    
+    //布局
+    [view autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.CAShapeLayerView withOffset:15];
+    [view autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.visionEffectView withOffset:10];
+    [view autoSetDimension:ALDimensionWidth toSize:330];
+    [view autoSetDimension:ALDimensionHeight toSize:330];
+    
+    
     
 }
 
@@ -130,9 +176,6 @@
     [view autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.visionEffectView withOffset:-20];
     [view autoSetDimension:ALDimensionWidth toSize:360];
     [view autoSetDimension:ALDimensionHeight toSize:360];
-    
-    
-    
     
 }
 
