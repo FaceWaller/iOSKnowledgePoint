@@ -23,6 +23,8 @@
 @property(nonatomic,weak)UIView * transform3DView;
 @property(nonatomic,weak)UIView * CAShapeLayerView;
 @property(nonatomic,weak)UIView * CATextLayerView;
+@property(nonatomic,weak)CALayer * colorLayer;
+
 @property(nonatomic,weak)customDrawingView * customDrawingView;
 @end
 
@@ -85,7 +87,33 @@
     //CATextLayer
     [self CATextLayer];
     
+    //隐式动画
+    //当改变CALayer的一个可做动画的属性，它并不能立刻在屏幕上体现出来，而是平滑的过渡，这就是隐式动画。
+    [self chaneColorAnimation];
 }
+
+- (void)chaneColorAnimation{
+    CALayer * colorLayer = [CALayer layer];
+    self.colorLayer = colorLayer;
+    colorLayer.frame = CGRectMake(20, 1700, 200, 200);
+    [self.scrollView.layer addSublayer:colorLayer];
+    colorLayer.backgroundColor = [UIColor whiteColor].CGColor;
+    
+    UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake(250, 1700, 100, 40)];
+    btn.backgroundColor = [UIColor orangeColor];
+    [btn setTitle:@"改变颜色" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(changeColor) forControlEvents:UIControlEventTouchUpInside];
+    [self.scrollView addSubview:btn];
+}
+
+- (void)changeColor{
+    CGFloat red = arc4random()/(CGFloat)INT_MAX;
+    CGFloat green = arc4random()/(CGFloat)INT_MAX;
+    CGFloat blue = arc4random()/(CGFloat)INT_MAX;
+    self.colorLayer.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0].CGColor;
+}
+
+
 
 - (void)CATextLayer{
     UIView * view = [[UIView alloc]init];
