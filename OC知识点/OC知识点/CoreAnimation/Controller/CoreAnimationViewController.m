@@ -9,6 +9,7 @@
 #import "CoreAnimationViewController.h"
 #import "PureLayout.h"
 #import "customDrawingView.h"
+#import "MoveLayerViewController.h"
 
 @interface CoreAnimationViewController ()<CALayerDelegate>
 @property(nonatomic,weak)UIScrollView * scrollView;
@@ -24,7 +25,7 @@
 @property(nonatomic,weak)UIView * CAShapeLayerView;
 @property(nonatomic,weak)UIView * CATextLayerView;
 @property(nonatomic,weak)CALayer * colorLayer;
-
+@property(nonatomic,weak)CALayer * actionColorLayer;
 @property(nonatomic,weak)customDrawingView * customDrawingView;
 @end
 
@@ -90,6 +91,63 @@
     //隐式动画
     //当改变CALayer的一个可做动画的属性，它并不能立刻在屏幕上体现出来，而是平滑的过渡，这就是隐式动画。
     [self chaneColorAnimation];
+    
+    //通过layer的action值来进行动画
+    [self actionColorAnimation];
+    
+    //可以移动的图层
+    [self moveColorAnimation];
+}
+
+
+- (void)moveColorAnimation{
+    UIButton * btn = [[UIButton alloc]init];
+    btn.backgroundColor = [UIColor blackColor];
+    [btn setTitle:@"移动图层" forState:UIControlStateNormal];
+    [self.scrollView addSubview:btn];
+    [btn addTarget:self action:@selector(toMoveLayerController) forControlEvents:UIControlEventTouchUpInside];
+    
+    //布局
+    [btn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.CATextLayerView withOffset:480];
+    [btn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.CATextLayerView withOffset:10];
+    [btn autoSetDimension:ALDimensionWidth toSize:100];
+    [btn autoSetDimension:ALDimensionHeight toSize:40];
+}
+
+- (void)toMoveLayerController{
+    MoveLayerViewController * vc = [[MoveLayerViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+- (void)actionColorAnimation{
+    
+    CALayer * colorLayer = [CALayer layer];
+    self.actionColorLayer = colorLayer;
+    colorLayer.frame = CGRectMake(20, 1920, 200, 200);
+    [self.scrollView.layer addSublayer:colorLayer];
+    colorLayer.backgroundColor = [UIColor whiteColor].CGColor;
+    //add a custom action
+    CATransition * transition = [CATransition animation];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromLeft;
+    colorLayer.actions = @{@"backgroundColor":transition};
+    
+    
+    
+    UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake(250, 1920, 100, 40)];
+    btn.backgroundColor = [UIColor greenColor];
+    [btn setTitle:@"改变颜色" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(actionChangeColor) forControlEvents:UIControlEventTouchUpInside];
+    [self.scrollView addSubview:btn];
+}
+
+- (void)actionChangeColor{
+    CGFloat red = arc4random()/(CGFloat)INT_MAX;
+    CGFloat green = arc4random()/(CGFloat)INT_MAX;
+    CGFloat blue = arc4random()/(CGFloat)INT_MAX;
+    self.actionColorLayer.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0].CGColor;
+    
 }
 
 - (void)chaneColorAnimation{
@@ -107,10 +165,21 @@
 }
 
 - (void)changeColor{
+    
+    [CATransaction begin]; //动画入栈
+    [CATransaction setAnimationDuration:1.0]; //设置动画时间
+    //完成块
+    [CATransaction setCompletionBlock:^{
+        //动画完成时调用
+//        [self changeColor];
+    }];
+    
     CGFloat red = arc4random()/(CGFloat)INT_MAX;
     CGFloat green = arc4random()/(CGFloat)INT_MAX;
     CGFloat blue = arc4random()/(CGFloat)INT_MAX;
     self.colorLayer.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0].CGColor;
+    
+    [CATransaction commit];
 }
 
 
