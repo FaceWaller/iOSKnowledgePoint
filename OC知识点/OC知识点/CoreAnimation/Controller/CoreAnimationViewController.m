@@ -10,6 +10,7 @@
 #import "PureLayout.h"
 #import "customDrawingView.h"
 #import "MoveLayerViewController.h"
+#import "CAAnimationViewController.h"
 
 @interface CoreAnimationViewController ()<CALayerDelegate>
 @property(nonatomic,weak)UIScrollView * scrollView;
@@ -26,6 +27,9 @@
 @property(nonatomic,weak)UIView * CATextLayerView;
 @property(nonatomic,weak)CALayer * colorLayer;
 @property(nonatomic,weak)CALayer * actionColorLayer;
+@property(nonatomic,weak)UIButton * moveColorBtn;
+@property(nonatomic,weak)UIButton * showAnimationBtn;
+@property(nonatomic,weak)UIView * mySelfTransitionView;
 @property(nonatomic,weak)customDrawingView * customDrawingView;
 @end
 
@@ -97,11 +101,95 @@
     
     //可以移动的图层
     [self moveColorAnimation];
+    
+    //显式动画
+    //属性动画
+    [self CAAnimation];
+    
+    //自定义过渡
+    [self mySelfTransition];
 }
+
+- (void)performTransition{
+    
+    UIGraphicsBeginImageContext(CGSizeMake(200, 200));
+    [self.mySelfTransitionView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage * coverImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIView * converView = [[UIImageView alloc]initWithImage:coverImage];
+    [self.mySelfTransitionView addSubview:converView];
+
+    converView.frame = CGRectMake(0, 0, 200, 200);
+    
+    
+    CGFloat red = arc4random()/(CGFloat)INT_MAX;
+    CGFloat green = arc4random()/(CGFloat)INT_MAX;
+    CGFloat blue = arc4random()/(CGFloat)INT_MAX;
+    self.mySelfTransitionView.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        CGAffineTransform transform = CGAffineTransformMakeScale(0.01, 0.01);
+        transform = CGAffineTransformRotate(transform, M_PI_2);
+        converView.transform = transform;
+        converView.alpha = 0.0;
+    }completion:^(BOOL finished) {
+        [converView removeFromSuperview];
+    }];
+    
+    
+}
+
+- (void)mySelfTransition{
+    UIView * view = [[UIView alloc]init];
+    self.mySelfTransitionView = view;
+    view.backgroundColor = [UIColor whiteColor];
+    [self.scrollView addSubview:view];
+    
+    UIButton * btn = [[UIButton alloc]init];
+    btn.backgroundColor = [UIColor greenColor];
+    [btn setTitle:@"自定义过渡" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(performTransition) forControlEvents:UIControlEventTouchUpInside];
+    [self.scrollView addSubview:btn];
+    
+    //布局
+    [view autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.showAnimationBtn withOffset:15];
+    [view autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.showAnimationBtn withOffset:-35];
+    [view autoSetDimension:ALDimensionWidth toSize:200];
+    [view autoSetDimension:ALDimensionHeight toSize:200];
+    
+    [btn autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.mySelfTransitionView];
+    [btn autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.mySelfTransitionView withOffset:30];
+    [btn autoSetDimension:ALDimensionWidth toSize:100];
+    [btn autoSetDimension:ALDimensionHeight toSize:40];
+    
+}
+
+- (void)CAAnimation{
+
+    UIButton * btn = [[UIButton alloc]init];
+    self.showAnimationBtn = btn;
+    btn.backgroundColor = [UIColor blackColor];
+    [btn setTitle:@"显式动画" forState:UIControlStateNormal];
+    [self.scrollView addSubview:btn];
+    [btn addTarget:self action:@selector(toCAAnimation) forControlEvents:UIControlEventTouchUpInside];
+    
+    //布局
+    [btn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.moveColorBtn withOffset:15];
+    [btn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.moveColorBtn withOffset:0];
+    [btn autoSetDimension:ALDimensionWidth toSize:100];
+    [btn autoSetDimension:ALDimensionHeight toSize:40];
+    
+}
+
+- (void)toCAAnimation{
+    CAAnimationViewController * vc = [[CAAnimationViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 
 - (void)moveColorAnimation{
     UIButton * btn = [[UIButton alloc]init];
+    self.moveColorBtn = btn;
     btn.backgroundColor = [UIColor blackColor];
     [btn setTitle:@"移动图层" forState:UIControlStateNormal];
     [self.scrollView addSubview:btn];
@@ -129,7 +217,9 @@
     colorLayer.backgroundColor = [UIColor whiteColor].CGColor;
     //add a custom action
     CATransition * transition = [CATransition animation];
-    transition.type = kCATransitionPush;
+//    transition.type = kCATransitionPush;
+    transition.type = kCATransitionReveal;
+    
     transition.subtype = kCATransitionFromLeft;
     colorLayer.actions = @{@"backgroundColor":transition};
     
@@ -169,10 +259,10 @@
     [CATransaction begin]; //动画入栈
     [CATransaction setAnimationDuration:1.0]; //设置动画时间
     //完成块
-    [CATransaction setCompletionBlock:^{
+//    [CATransaction setCompletionBlock:^{
         //动画完成时调用
 //        [self changeColor];
-    }];
+//    }];
     
     CGFloat red = arc4random()/(CGFloat)INT_MAX;
     CGFloat green = arc4random()/(CGFloat)INT_MAX;

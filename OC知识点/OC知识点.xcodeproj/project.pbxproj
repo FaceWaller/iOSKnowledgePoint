@@ -11,6 +11,7 @@
 		C15847AB5AE88EC2B44DBFF4 /* libPods-OC知识点.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DA2C5820B00BE2D6CFA5FA /* libPods-OC知识点.a */; };
 		C75D46C2DB1D4F82CBB58539 /* libPods-OC知识点UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFAE25817A71A3BB7142898 /* libPods-OC知识点UITests.a */; };
 		E73F968320E75B89005BC55E /* MoveLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F968220E75B89005BC55E /* MoveLayerViewController.m */; };
+		E73F968620E7730A005BC55E /* CAAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F968520E7730A005BC55E /* CAAnimationViewController.m */; };
 		E74FD8E320A6D16E00793950 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E74FD8E220A6D16E00793950 /* AppDelegate.m */; };
 		E74FD8EB20A6D17000793950 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E74FD8EA20A6D17000793950 /* Assets.xcassets */; };
 		E74FD8EE20A6D17000793950 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E74FD8EC20A6D17000793950 /* LaunchScreen.storyboard */; };
@@ -58,6 +59,8 @@
 		CAFAE25817A71A3BB7142898 /* libPods-OC知识点UITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OC知识点UITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73F968120E75B89005BC55E /* MoveLayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveLayerViewController.h; sourceTree = "<group>"; };
 		E73F968220E75B89005BC55E /* MoveLayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoveLayerViewController.m; sourceTree = "<group>"; };
+		E73F968420E7730A005BC55E /* CAAnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAAnimationViewController.h; sourceTree = "<group>"; };
+		E73F968520E7730A005BC55E /* CAAnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAAnimationViewController.m; sourceTree = "<group>"; };
 		E74FD8DE20A6D16E00793950 /* OC知识点.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OC知识点.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E74FD8E120A6D16E00793950 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E74FD8E220A6D16E00793950 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -275,6 +278,8 @@
 			children = (
 				E7CE5B7320C8413800E72231 /* CoreAnimationViewController.h */,
 				E7CE5B7420C8413800E72231 /* CoreAnimationViewController.m */,
+				E73F968420E7730A005BC55E /* CAAnimationViewController.h */,
+				E73F968520E7730A005BC55E /* CAAnimationViewController.m */,
 				E73F968120E75B89005BC55E /* MoveLayerViewController.h */,
 				E73F968220E75B89005BC55E /* MoveLayerViewController.m */,
 			);
@@ -656,6 +661,7 @@
 				E74FD91B20A6D4E900793950 /* TestView.m in Sources */,
 				E7F135D420B5B4A3004EEF3D /* StudyMessageViewController.m in Sources */,
 				E74FD8F120A6D17000793950 /* main.m in Sources */,
+				E73F968620E7730A005BC55E /* CAAnimationViewController.m in Sources */,
 				E74FD91520A6D40300793950 /* MainViewController.m in Sources */,
 				E7F135DB20B703DA004EEF3D /* StudyMessageSunObj.m in Sources */,
 				E74FD8E320A6D16E00793950 /* AppDelegate.m in Sources */,
