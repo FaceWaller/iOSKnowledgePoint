@@ -11,6 +11,8 @@
 #import "customDrawingView.h"
 #import "MoveLayerViewController.h"
 #import "CAAnimationViewController.h"
+#import "ElasticBallViewController.h"
+#import "DrawingViewController.h"
 
 @interface CoreAnimationViewController ()<CALayerDelegate>
 @property(nonatomic,weak)UIScrollView * scrollView;
@@ -30,6 +32,10 @@
 @property(nonatomic,weak)UIButton * moveColorBtn;
 @property(nonatomic,weak)UIButton * showAnimationBtn;
 @property(nonatomic,weak)UIView * mySelfTransitionView;
+@property(nonatomic,weak)UIView * timingFunctionView;
+@property(nonatomic,weak)UIButton * elasticBallBtn;//弹性球
+@property(nonatomic,weak)UIButton * drawingBtn;
+
 @property(nonatomic,weak)customDrawingView * customDrawingView;
 @end
 
@@ -108,7 +114,59 @@
     
     //自定义过渡
     [self mySelfTransition];
+    
+    //弹性球
+    [self elasticBall];
+    
+    //绘制页面
+    [self drawing];
 }
+
+- (void)toDrawVC{
+    DrawingViewController * vc = [[DrawingViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)drawing{
+    UIButton * btn = [[UIButton alloc]init];
+    self.drawingBtn = btn;
+    btn.backgroundColor = [UIColor blackColor];
+    [btn setTitle:@"绘制" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(toDrawVC) forControlEvents:UIControlEventTouchUpInside];
+    [self.scrollView addSubview:btn];
+    
+    
+    
+    [btn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.elasticBallBtn withOffset:20];
+    [btn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.elasticBallBtn];
+    [btn autoSetDimension:ALDimensionWidth toSize:100];
+    [btn autoSetDimension:ALDimensionHeight toSize:40];
+
+}
+
+- (void)toElasticBall{
+    ElasticBallViewController * vc = [[ElasticBallViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)elasticBall{
+    
+    UIButton * btn = [[UIButton alloc]init];
+    self.elasticBallBtn = btn;
+    btn.backgroundColor = [UIColor blackColor];
+    [btn setTitle:@"弹性球" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(toElasticBall) forControlEvents:UIControlEventTouchUpInside];
+    [self.scrollView addSubview:btn];
+    
+    
+    
+    [btn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.showAnimationBtn withOffset:250];
+    [btn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.showAnimationBtn];
+    [btn autoSetDimension:ALDimensionWidth toSize:100];
+    [btn autoSetDimension:ALDimensionHeight toSize:40];
+}
+
+
 
 - (void)performTransition{
     

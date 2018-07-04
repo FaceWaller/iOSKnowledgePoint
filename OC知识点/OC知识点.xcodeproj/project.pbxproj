@@ -12,6 +12,8 @@
 		C75D46C2DB1D4F82CBB58539 /* libPods-OC知识点UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFAE25817A71A3BB7142898 /* libPods-OC知识点UITests.a */; };
 		E73F968320E75B89005BC55E /* MoveLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F968220E75B89005BC55E /* MoveLayerViewController.m */; };
 		E73F968620E7730A005BC55E /* CAAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F968520E7730A005BC55E /* CAAnimationViewController.m */; };
+		E74FC40620ED1DF80067E022 /* DrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E74FC40520ED1DF80067E022 /* DrawingView.m */; };
+		E74FC40920ED26AD0067E022 /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E74FC40820ED26AD0067E022 /* DrawingViewController.m */; };
 		E74FD8E320A6D16E00793950 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E74FD8E220A6D16E00793950 /* AppDelegate.m */; };
 		E74FD8EB20A6D17000793950 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E74FD8EA20A6D17000793950 /* Assets.xcassets */; };
 		E74FD8EE20A6D17000793950 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E74FD8EC20A6D17000793950 /* LaunchScreen.storyboard */; };
@@ -29,6 +31,7 @@
 		E7F135D720B5B736004EEF3D /* StudyMessageObj.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F135D620B5B736004EEF3D /* StudyMessageObj.m */; };
 		E7F135DB20B703DA004EEF3D /* StudyMessageSunObj.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F135DA20B703DA004EEF3D /* StudyMessageSunObj.m */; };
 		E7F135DE20B70B10004EEF3D /* StudyMessageTar.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F135DD20B70B10004EEF3D /* StudyMessageTar.m */; };
+		E7FE091E20EA824D00CC239A /* ElasticBallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FE091D20EA824D00CC239A /* ElasticBallViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,10 @@
 		E73F968220E75B89005BC55E /* MoveLayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoveLayerViewController.m; sourceTree = "<group>"; };
 		E73F968420E7730A005BC55E /* CAAnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAAnimationViewController.h; sourceTree = "<group>"; };
 		E73F968520E7730A005BC55E /* CAAnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAAnimationViewController.m; sourceTree = "<group>"; };
+		E74FC40420ED1DF80067E022 /* DrawingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawingView.h; sourceTree = "<group>"; };
+		E74FC40520ED1DF80067E022 /* DrawingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawingView.m; sourceTree = "<group>"; };
+		E74FC40720ED26AD0067E022 /* DrawingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawingViewController.h; sourceTree = "<group>"; };
+		E74FC40820ED26AD0067E022 /* DrawingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawingViewController.m; sourceTree = "<group>"; };
 		E74FD8DE20A6D16E00793950 /* OC知识点.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OC知识点.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E74FD8E120A6D16E00793950 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E74FD8E220A6D16E00793950 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -96,6 +103,8 @@
 		E7F135DA20B703DA004EEF3D /* StudyMessageSunObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudyMessageSunObj.m; sourceTree = "<group>"; };
 		E7F135DC20B70B10004EEF3D /* StudyMessageTar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudyMessageTar.h; sourceTree = "<group>"; };
 		E7F135DD20B70B10004EEF3D /* StudyMessageTar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudyMessageTar.m; sourceTree = "<group>"; };
+		E7FE091C20EA824D00CC239A /* ElasticBallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ElasticBallViewController.h; sourceTree = "<group>"; };
+		E7FE091D20EA824D00CC239A /* ElasticBallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ElasticBallViewController.m; sourceTree = "<group>"; };
 		F4F7C172359C07C20CE63310 /* Pods-OC知识点.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OC知识点.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OC知识点/Pods-OC知识点.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -278,10 +287,14 @@
 			children = (
 				E7CE5B7320C8413800E72231 /* CoreAnimationViewController.h */,
 				E7CE5B7420C8413800E72231 /* CoreAnimationViewController.m */,
+				E74FC40720ED26AD0067E022 /* DrawingViewController.h */,
+				E74FC40820ED26AD0067E022 /* DrawingViewController.m */,
 				E73F968420E7730A005BC55E /* CAAnimationViewController.h */,
 				E73F968520E7730A005BC55E /* CAAnimationViewController.m */,
 				E73F968120E75B89005BC55E /* MoveLayerViewController.h */,
 				E73F968220E75B89005BC55E /* MoveLayerViewController.m */,
+				E7FE091C20EA824D00CC239A /* ElasticBallViewController.h */,
+				E7FE091D20EA824D00CC239A /* ElasticBallViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -298,6 +311,8 @@
 			children = (
 				E77D032020CBE54B007080E0 /* customDrawingView.h */,
 				E77D032120CBE54B007080E0 /* customDrawingView.m */,
+				E74FC40420ED1DF80067E022 /* DrawingView.h */,
+				E74FC40520ED1DF80067E022 /* DrawingView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -651,10 +666,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7DA9D9C20AC89B4009E016A /* RunLoopViewController.m in Sources */,
+				E74FC40620ED1DF80067E022 /* DrawingView.m in Sources */,
 				E73F968320E75B89005BC55E /* MoveLayerViewController.m in Sources */,
 				E79004F220A8360000AE02F3 /* ThreadViewController.m in Sources */,
 				E79004E420A81FE700AE02F3 /* BlockTestObj.m in Sources */,
 				E77D032220CBE54B007080E0 /* customDrawingView.m in Sources */,
+				E7FE091E20EA824D00CC239A /* ElasticBallViewController.m in Sources */,
 				E7F135DE20B70B10004EEF3D /* StudyMessageTar.m in Sources */,
 				E7CE5B7520C8413800E72231 /* CoreAnimationViewController.m in Sources */,
 				E7F135D720B5B736004EEF3D /* StudyMessageObj.m in Sources */,
@@ -665,6 +682,7 @@
 				E74FD91520A6D40300793950 /* MainViewController.m in Sources */,
 				E7F135DB20B703DA004EEF3D /* StudyMessageSunObj.m in Sources */,
 				E74FD8E320A6D16E00793950 /* AppDelegate.m in Sources */,
+				E74FC40920ED26AD0067E022 /* DrawingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

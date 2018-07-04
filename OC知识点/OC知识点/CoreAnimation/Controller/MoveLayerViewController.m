@@ -34,13 +34,18 @@
     CGPoint point = [[touches anyObject]locationInView:self.view];
     if ([self.moveColorLayer.presentationLayer hitTest:point]) {
 
+        
+        
         CGFloat red = arc4random()/(CGFloat)INT_MAX;
         CGFloat green = arc4random()/(CGFloat)INT_MAX;
         CGFloat blue = arc4random()/(CGFloat)INT_MAX;
         self.moveColorLayer.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0].CGColor;
     }else{
         [CATransaction begin];
-        [CATransaction setAnimationDuration:4.0];
+        [CATransaction setAnimationDuration:1.0];
+        //设置加速方式
+        [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+        
         self.moveColorLayer.position = point;
         [CATransaction commit];
     }
