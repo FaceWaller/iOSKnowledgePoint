@@ -28,7 +28,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OC&#x77e5;&#x8bc6;&#x70b9;/CoreAnimation/View/DrawingView.m"
-            timestampString = "552752508.732518"
+            timestampString = "552752589.8488899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -44,7 +44,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OC&#x77e5;&#x8bc6;&#x70b9;/CoreAnimation/View/DrawingView.m"
-            timestampString = "552752508.7340159"
+            timestampString = "552752589.8492219"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -60,12 +60,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OC&#x77e5;&#x8bc6;&#x70b9;/CoreAnimation/View/DrawingView.m"
-            timestampString = "552752508.734228"
+            timestampString = "552752589.849435"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
             endingLineNumber = "21"
             landmarkName = "-init"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/AFNetworking/AFNetworking/AFURLSessionManager.m"
+            timestampString = "553016367.9938999"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "509"
+            endingLineNumber = "509"
+            landmarkName = "-initWithSessionConfiguration:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

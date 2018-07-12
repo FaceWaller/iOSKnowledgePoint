@@ -22,6 +22,7 @@
 		E74FD90620A6D17000793950 /* OC___UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E74FD90520A6D17000793950 /* OC___UITests.m */; };
 		E74FD91520A6D40300793950 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E74FD91420A6D40300793950 /* MainViewController.m */; };
 		E74FD91B20A6D4E900793950 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = E74FD91A20A6D4E900793950 /* TestView.m */; };
+		E76BEC2C20F4EBE6000A2B16 /* NetWorkingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E76BEC2B20F4EBE6000A2B16 /* NetWorkingViewController.m */; };
 		E77D032220CBE54B007080E0 /* customDrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E77D032120CBE54B007080E0 /* customDrawingView.m */; };
 		E79004E420A81FE700AE02F3 /* BlockTestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = E79004E320A81FE700AE02F3 /* BlockTestObj.m */; };
 		E79004F220A8360000AE02F3 /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E79004F120A8360000AE02F3 /* ThreadViewController.m */; };
@@ -85,6 +86,8 @@
 		E74FD91420A6D40300793950 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		E74FD91920A6D4E900793950 /* TestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
 		E74FD91A20A6D4E900793950 /* TestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
+		E76BEC2A20F4EBE6000A2B16 /* NetWorkingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkingViewController.h; sourceTree = "<group>"; };
+		E76BEC2B20F4EBE6000A2B16 /* NetWorkingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkingViewController.m; sourceTree = "<group>"; };
 		E77D032020CBE54B007080E0 /* customDrawingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = customDrawingView.h; sourceTree = "<group>"; };
 		E77D032120CBE54B007080E0 /* customDrawingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = customDrawingView.m; sourceTree = "<group>"; };
 		E79004E220A81FE700AE02F3 /* BlockTestObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockTestObj.h; sourceTree = "<group>"; };
@@ -188,6 +191,7 @@
 				E74FD8E220A6D16E00793950 /* AppDelegate.m */,
 				E74FD91320A6D40300793950 /* MainViewController.h */,
 				E74FD91420A6D40300793950 /* MainViewController.m */,
+				E76BEC2620F4EB26000A2B16 /* NetWorking */,
 				E7CE5B6F20C8411400E72231 /* CoreAnimation */,
 				E7F135CE20B5B494004EEF3D /* 消息机制 */,
 				E7DA9D9620AC89B4009E016A /* RunLoop */,
@@ -218,6 +222,40 @@
 				E74FD90720A6D17000793950 /* Info.plist */,
 			);
 			path = "OC知识点UITests";
+			sourceTree = "<group>";
+		};
+		E76BEC2620F4EB26000A2B16 /* NetWorking */ = {
+			isa = PBXGroup;
+			children = (
+				E76BEC2720F4EB26000A2B16 /* Controller */,
+				E76BEC2820F4EB26000A2B16 /* Model */,
+				E76BEC2920F4EB26000A2B16 /* View */,
+			);
+			name = NetWorking;
+			path = "OC知识点/NetWorking";
+			sourceTree = SOURCE_ROOT;
+		};
+		E76BEC2720F4EB26000A2B16 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E76BEC2A20F4EBE6000A2B16 /* NetWorkingViewController.h */,
+				E76BEC2B20F4EBE6000A2B16 /* NetWorkingViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E76BEC2820F4EB26000A2B16 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E76BEC2920F4EB26000A2B16 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E79004E520A8327900AE02F3 /* Block */ = {
@@ -680,6 +718,7 @@
 				E74FD8F120A6D17000793950 /* main.m in Sources */,
 				E73F968620E7730A005BC55E /* CAAnimationViewController.m in Sources */,
 				E74FD91520A6D40300793950 /* MainViewController.m in Sources */,
+				E76BEC2C20F4EBE6000A2B16 /* NetWorkingViewController.m in Sources */,
 				E7F135DB20B703DA004EEF3D /* StudyMessageSunObj.m in Sources */,
 				E74FD8E320A6D16E00793950 /* AppDelegate.m in Sources */,
 				E74FC40920ED26AD0067E022 /* DrawingViewController.m in Sources */,

@@ -16,6 +16,7 @@
 #import "CoreAnimationViewController.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
+#import "NetWorkingViewController.h"
 @interface MainViewController ()<ChangeColor>
 @property(nonatomic,weak)TestView * testView;
 @property(nonatomic,weak)UIButton * threadBtn;
@@ -24,7 +25,7 @@
 @property(nonatomic,weak)UIButton * SELIMPBtn;
 @property(nonatomic,weak)UIButton * MessageBtn;
 @property(nonatomic,weak)UIButton * CoreAnimationBtn;
-
+@property(nonatomic,weak)UIButton * NetworkingBtn;
 
 @end
 
@@ -46,6 +47,18 @@
         _testView = testView;
     }
     return _testView;
+}
+
+- (UIButton *)NetworkingBtn{
+    if (!_NetworkingBtn) {
+        UIButton * btn = [[UIButton alloc]init];
+        [btn setTitle:@"NetWorking" forState:UIControlStateNormal];
+        [self.view addSubview:btn];
+        btn.backgroundColor = [UIColor grayColor];
+        [btn addTarget:self action:@selector(networking) forControlEvents:UIControlEventTouchUpInside];
+        _NetworkingBtn = btn;
+    }
+    return _NetworkingBtn;
 }
 
 - (UIButton *)CoreAnimationBtn{
@@ -179,6 +192,10 @@
     [self.CoreAnimationBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.SELIMPBtn];
     [self.CoreAnimationBtn autoSetDimension:ALDimensionHeight toSize:50];
     
+    [self.NetworkingBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.CoreAnimationBtn];
+    [self.NetworkingBtn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.MessageBtn];
+    [self.NetworkingBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.MessageBtn];
+    [self.NetworkingBtn autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.CoreAnimationBtn];
 }
 
 - (void)testThread{
@@ -231,6 +248,11 @@
 - (void)coreAnimation{
     CoreAnimationViewController * coreAnimation = [[CoreAnimationViewController alloc]init];
     [self.navigationController pushViewController:coreAnimation animated:YES];
+}
+
+- (void)networking{
+    NetWorkingViewController * networkingVC = [[NetWorkingViewController alloc] init];
+    [self.navigationController pushViewController:networkingVC animated:YES];
 }
 
 @end

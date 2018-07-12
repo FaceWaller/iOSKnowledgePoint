@@ -7,6 +7,7 @@ target 'OC知识点' do
 
   # Pods for OC知识点
   pod 'PureLayout', '~> 3.0.2'
+  pod 'AFNetworking', '~> 3.2.1'
 
   target 'OC知识点Tests' do
     inherit! :search_paths
