@@ -1,19 +1,19 @@
 //
-//  StudyMessageSunObj.m
+//  StudyMessageSonObj.m
 //  OC知识点
 //
 //  Created by Alan on 2018/5/24.
 //  Copyright © 2018年 Alan. All rights reserved.
 //
 
-#import "StudyMessageSunObj.h"
+#import "StudyMessageSonObj.h"
 #import "StudyMessageTar.h"
 
-@interface StudyMessageSunObj()
+@interface StudyMessageSonObj()
 @property(nonatomic,strong)StudyMessageTar * tar;
 @end
 
-@implementation StudyMessageSunObj
+@implementation StudyMessageSonObj
 
 - (StudyMessageTar *)tar{
     if (!_tar) {
@@ -24,23 +24,23 @@
 
 
 //判断本类是否能够处理sel方法，能处理就返回yes
-//+ (BOOL)resolveInstanceMethod:(SEL)sel{
-//    return YES;
-//}
++ (BOOL)resolveInstanceMethod:(SEL)sel{
+    return YES;
+}
 
 
 
 
 //转发方法  让转发到的对象执行aSelector
-//- (id)forwardingTargetForSelector:(SEL)aSelector{
-//#pragma clang diagnostic push
-//#pragma clang diagnostic ignored "-Wundeclared-selector"
-//    if (aSelector == @selector(sendMessage)) {
-//        return self.tar;
-//    }else{
-//        return [super forwardingTargetForSelector:aSelector];
-//    }
-//}
+- (id)forwardingTargetForSelector:(SEL)aSelector{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+    if (aSelector == @selector(sendMessage)) {
+        return self.tar;
+    }else{
+        return [super forwardingTargetForSelector:aSelector];
+    }
+}
 
 -(void)forwardInvocation:(NSInvocation *)anInvocation{
     if ([self.tar respondsToSelector:[anInvocation selector]]) {

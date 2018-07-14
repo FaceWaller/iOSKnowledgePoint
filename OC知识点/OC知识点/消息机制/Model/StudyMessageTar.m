@@ -9,8 +9,8 @@
 #import "StudyMessageTar.h"
 
 @implementation StudyMessageTar
-//- (void)sendMessage{
-//    NSLog(@"Tar sendMessage");
-//}
+- (void)sendMessage{
+    NSLog(@"Tar sendMessage");
+}
 
 @end

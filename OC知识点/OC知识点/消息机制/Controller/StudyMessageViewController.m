@@ -7,12 +7,12 @@
 //
 
 #import "StudyMessageViewController.h"
-#import "StudyMessageSunObj.h"
+#import "StudyMessageSonObj.h"
 #import "PureLayout.h"
 
 @interface StudyMessageViewController ()
 @property(nonatomic,weak)UIButton * sendMessageBtn;
-@property(nonatomic,strong)StudyMessageSunObj * messageSunObj;
+@property(nonatomic,strong)StudyMessageSonObj * messageSonObj;
 
 @end
 
@@ -30,12 +30,12 @@
     return _sendMessageBtn;
 }
 
-- (StudyMessageSunObj *)messageSunObj{
-    if (!_messageSunObj) {
-        StudyMessageSunObj * messageSunObj = [[StudyMessageSunObj alloc]init];
-        _messageSunObj = messageSunObj;
+- (StudyMessageSonObj *)messageSunObj{
+    if (!_messageSonObj) {
+        StudyMessageSonObj * messageSunObj = [[StudyMessageSonObj alloc]init];
+        _messageSonObj = messageSunObj;
     }
-    return _messageSunObj;
+    return _messageSonObj;
 }
 
 - (void)viewDidLoad {

@@ -10,6 +10,8 @@
 		8E1E7D8C176CF92995596227 /* libPods-OC知识点Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8D30D2CF71C132354D9D129 /* libPods-OC知识点Tests.a */; };
 		C15847AB5AE88EC2B44DBFF4 /* libPods-OC知识点.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DA2C5820B00BE2D6CFA5FA /* libPods-OC知识点.a */; };
 		C75D46C2DB1D4F82CBB58539 /* libPods-OC知识点UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFAE25817A71A3BB7142898 /* libPods-OC知识点UITests.a */; };
+		E723698C20FA24C8000523A2 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = E723698B20FA24C8000523A2 /* Person.m */; };
+		E723698F20FA25D1000523A2 /* Person+PersonRun.m in Sources */ = {isa = PBXBuildFile; fileRef = E723698E20FA25D1000523A2 /* Person+PersonRun.m */; };
 		E73F968320E75B89005BC55E /* MoveLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F968220E75B89005BC55E /* MoveLayerViewController.m */; };
 		E73F968620E7730A005BC55E /* CAAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73F968520E7730A005BC55E /* CAAnimationViewController.m */; };
 		E74FC40620ED1DF80067E022 /* DrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E74FC40520ED1DF80067E022 /* DrawingView.m */; };
@@ -30,7 +32,7 @@
 		E7DA9D9C20AC89B4009E016A /* RunLoopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DA9D9820AC89B4009E016A /* RunLoopViewController.m */; };
 		E7F135D420B5B4A3004EEF3D /* StudyMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F135D320B5B4A3004EEF3D /* StudyMessageViewController.m */; };
 		E7F135D720B5B736004EEF3D /* StudyMessageObj.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F135D620B5B736004EEF3D /* StudyMessageObj.m */; };
-		E7F135DB20B703DA004EEF3D /* StudyMessageSunObj.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F135DA20B703DA004EEF3D /* StudyMessageSunObj.m */; };
+		E7F135DB20B703DA004EEF3D /* StudyMessageSonObj.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F135DA20B703DA004EEF3D /* StudyMessageSonObj.m */; };
 		E7F135DE20B70B10004EEF3D /* StudyMessageTar.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F135DD20B70B10004EEF3D /* StudyMessageTar.m */; };
 		E7FE091E20EA824D00CC239A /* ElasticBallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FE091D20EA824D00CC239A /* ElasticBallViewController.m */; };
 /* End PBXBuildFile section */
@@ -61,6 +63,10 @@
 		C48D03432901EE1C6A20077E /* Pods-OC知识点Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OC知识点Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OC知识点Tests/Pods-OC知识点Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C5B1C3E6791257FFC08B5498 /* Pods-OC知识点.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OC知识点.release.xcconfig"; path = "Pods/Target Support Files/Pods-OC知识点/Pods-OC知识点.release.xcconfig"; sourceTree = "<group>"; };
 		CAFAE25817A71A3BB7142898 /* libPods-OC知识点UITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OC知识点UITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E723698A20FA24C8000523A2 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		E723698B20FA24C8000523A2 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		E723698D20FA25D1000523A2 /* Person+PersonRun.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Person+PersonRun.h"; sourceTree = "<group>"; };
+		E723698E20FA25D1000523A2 /* Person+PersonRun.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Person+PersonRun.m"; sourceTree = "<group>"; };
 		E73F968120E75B89005BC55E /* MoveLayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveLayerViewController.h; sourceTree = "<group>"; };
 		E73F968220E75B89005BC55E /* MoveLayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoveLayerViewController.m; sourceTree = "<group>"; };
 		E73F968420E7730A005BC55E /* CAAnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAAnimationViewController.h; sourceTree = "<group>"; };
@@ -102,8 +108,8 @@
 		E7F135D320B5B4A3004EEF3D /* StudyMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudyMessageViewController.m; sourceTree = "<group>"; };
 		E7F135D520B5B736004EEF3D /* StudyMessageObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudyMessageObj.h; sourceTree = "<group>"; };
 		E7F135D620B5B736004EEF3D /* StudyMessageObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudyMessageObj.m; sourceTree = "<group>"; };
-		E7F135D920B703DA004EEF3D /* StudyMessageSunObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudyMessageSunObj.h; sourceTree = "<group>"; };
-		E7F135DA20B703DA004EEF3D /* StudyMessageSunObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudyMessageSunObj.m; sourceTree = "<group>"; };
+		E7F135D920B703DA004EEF3D /* StudyMessageSonObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudyMessageSonObj.h; sourceTree = "<group>"; };
+		E7F135DA20B703DA004EEF3D /* StudyMessageSonObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudyMessageSonObj.m; sourceTree = "<group>"; };
 		E7F135DC20B70B10004EEF3D /* StudyMessageTar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudyMessageTar.h; sourceTree = "<group>"; };
 		E7F135DD20B70B10004EEF3D /* StudyMessageTar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StudyMessageTar.m; sourceTree = "<group>"; };
 		E7FE091C20EA824D00CC239A /* ElasticBallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ElasticBallViewController.h; sourceTree = "<group>"; };
@@ -191,6 +197,10 @@
 				E74FD8E220A6D16E00793950 /* AppDelegate.m */,
 				E74FD91320A6D40300793950 /* MainViewController.h */,
 				E74FD91420A6D40300793950 /* MainViewController.m */,
+				E723698A20FA24C8000523A2 /* Person.h */,
+				E723698B20FA24C8000523A2 /* Person.m */,
+				E723698D20FA25D1000523A2 /* Person+PersonRun.h */,
+				E723698E20FA25D1000523A2 /* Person+PersonRun.m */,
 				E76BEC2620F4EB26000A2B16 /* NetWorking */,
 				E7CE5B6F20C8411400E72231 /* CoreAnimation */,
 				E7F135CE20B5B494004EEF3D /* 消息机制 */,
@@ -412,8 +422,8 @@
 			children = (
 				E7F135D520B5B736004EEF3D /* StudyMessageObj.h */,
 				E7F135D620B5B736004EEF3D /* StudyMessageObj.m */,
-				E7F135D920B703DA004EEF3D /* StudyMessageSunObj.h */,
-				E7F135DA20B703DA004EEF3D /* StudyMessageSunObj.m */,
+				E7F135D920B703DA004EEF3D /* StudyMessageSonObj.h */,
+				E7F135DA20B703DA004EEF3D /* StudyMessageSonObj.m */,
 				E7F135DC20B70B10004EEF3D /* StudyMessageTar.h */,
 				E7F135DD20B70B10004EEF3D /* StudyMessageTar.m */,
 			);
@@ -703,6 +713,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E723698F20FA25D1000523A2 /* Person+PersonRun.m in Sources */,
 				E7DA9D9C20AC89B4009E016A /* RunLoopViewController.m in Sources */,
 				E74FC40620ED1DF80067E022 /* DrawingView.m in Sources */,
 				E73F968320E75B89005BC55E /* MoveLayerViewController.m in Sources */,
@@ -719,7 +730,8 @@
 				E73F968620E7730A005BC55E /* CAAnimationViewController.m in Sources */,
 				E74FD91520A6D40300793950 /* MainViewController.m in Sources */,
 				E76BEC2C20F4EBE6000A2B16 /* NetWorkingViewController.m in Sources */,
-				E7F135DB20B703DA004EEF3D /* StudyMessageSunObj.m in Sources */,
+				E723698C20FA24C8000523A2 /* Person.m in Sources */,
+				E7F135DB20B703DA004EEF3D /* StudyMessageSonObj.m in Sources */,
 				E74FD8E320A6D16E00793950 /* AppDelegate.m in Sources */,
 				E74FC40920ED26AD0067E022 /* DrawingViewController.m in Sources */,
 			);

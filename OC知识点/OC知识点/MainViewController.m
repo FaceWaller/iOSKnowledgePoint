@@ -17,6 +17,7 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 #import "NetWorkingViewController.h"
+#import "Person.h"
 @interface MainViewController ()<ChangeColor>
 @property(nonatomic,weak)TestView * testView;
 @property(nonatomic,weak)UIButton * threadBtn;
@@ -26,7 +27,7 @@
 @property(nonatomic,weak)UIButton * MessageBtn;
 @property(nonatomic,weak)UIButton * CoreAnimationBtn;
 @property(nonatomic,weak)UIButton * NetworkingBtn;
-
+@property(nonatomic,weak)UIButton * CategoryBtn;
 @end
 
 @implementation MainViewController
@@ -48,6 +49,19 @@
     }
     return _testView;
 }
+
+- (UIButton *)CategoryBtn{
+    if (!_CategoryBtn) {
+        UIButton * btn = [[UIButton alloc]init];
+        [btn setTitle:@"Category" forState:UIControlStateNormal];
+        [self.view addSubview:btn];
+        btn.backgroundColor = [UIColor grayColor];
+        [btn addTarget:self action:@selector(category) forControlEvents:UIControlEventTouchUpInside];
+        _CategoryBtn = btn;
+    }
+    return _CategoryBtn;
+}
+
 
 - (UIButton *)NetworkingBtn{
     if (!_NetworkingBtn) {
@@ -196,6 +210,12 @@
     [self.NetworkingBtn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.MessageBtn];
     [self.NetworkingBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.MessageBtn];
     [self.NetworkingBtn autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.CoreAnimationBtn];
+    
+    
+    [self.CategoryBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.CoreAnimationBtn withOffset:50];
+    [self.CategoryBtn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.CoreAnimationBtn];
+    [self.CategoryBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.CoreAnimationBtn];
+    [self.CategoryBtn autoSetDimension:ALDimensionHeight toSize:50];
 }
 
 - (void)testThread{
@@ -213,9 +233,23 @@
 - (void)timer{
     
     //线程繁忙的时候，NSTimer会不准
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(logTime) userInfo:nil repeats:YES];
+//    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(logTime) userInfo:nil repeats:YES];
+    
+    //在子线程中nstimer不执行的问题  需要主动创建一个runloop nstimer注册在runloop中
+ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
+        [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(logAsyncTime) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] run];
+
+    });
 
 }
+
+- (void)logAsyncTime{
+    NSLog(@"子线程中执行nstimer");
+}
+
+
 - (void)logTime{
     int count = 0;
     for (int i = 0; i < 1000000000; i++) {
@@ -254,5 +288,11 @@
     NetWorkingViewController * networkingVC = [[NetWorkingViewController alloc] init];
     [self.navigationController pushViewController:networkingVC animated:YES];
 }
+
+- (void)category{
+    Person * p = [[Person alloc]init];
+    [p run];
+}
+
 
 @end

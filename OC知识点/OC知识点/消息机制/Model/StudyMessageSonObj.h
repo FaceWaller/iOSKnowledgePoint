@@ -1,5 +1,5 @@
 //
-//  StudyMessageSunObj.h
+//  StudyMessageSonObj.h
 //  OC知识点
 //
 //  Created by Alan on 2018/5/24.
@@ -8,6 +8,6 @@
 
 #import "StudyMessageObj.h"
 
-@interface StudyMessageSunObj : StudyMessageObj
+@interface StudyMessageSonObj : StudyMessageObj
 
 @end
