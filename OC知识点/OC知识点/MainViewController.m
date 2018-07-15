@@ -18,6 +18,7 @@
 #import <objc/message.h>
 #import "NetWorkingViewController.h"
 #import "Person.h"
+#import "CoreGraphicsViewController.h"
 @interface MainViewController ()<ChangeColor>
 @property(nonatomic,weak)TestView * testView;
 @property(nonatomic,weak)UIButton * threadBtn;
@@ -28,6 +29,7 @@
 @property(nonatomic,weak)UIButton * CoreAnimationBtn;
 @property(nonatomic,weak)UIButton * NetworkingBtn;
 @property(nonatomic,weak)UIButton * CategoryBtn;
+@property(nonatomic,weak)UIButton * coreGraphicsBtn;
 @end
 
 @implementation MainViewController
@@ -48,6 +50,18 @@
         _testView = testView;
     }
     return _testView;
+}
+
+- (UIButton *)coreGraphicsBtn{
+    if (!_coreGraphicsBtn) {
+        UIButton * btn = [[UIButton alloc]init];
+        [btn setTitle:@"CoreGraphics" forState:UIControlStateNormal];
+        [self.view addSubview:btn];
+        btn.backgroundColor = [UIColor grayColor];
+        [btn addTarget:self action:@selector(coreGraphics) forControlEvents:UIControlEventTouchUpInside];
+        _coreGraphicsBtn = btn;
+    }
+    return _coreGraphicsBtn;
 }
 
 - (UIButton *)CategoryBtn{
@@ -216,6 +230,11 @@
     [self.CategoryBtn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.CoreAnimationBtn];
     [self.CategoryBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.CoreAnimationBtn];
     [self.CategoryBtn autoSetDimension:ALDimensionHeight toSize:50];
+    
+    [self.coreGraphicsBtn autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.CategoryBtn];
+    [self.coreGraphicsBtn autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.NetworkingBtn];
+    [self.coreGraphicsBtn autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.NetworkingBtn];
+    [self.coreGraphicsBtn autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.CategoryBtn];
 }
 
 - (void)testThread{
@@ -292,6 +311,11 @@
 - (void)category{
     Person * p = [[Person alloc]init];
     [p run];
+}
+
+- (void)coreGraphics{
+    CoreGraphicsViewController * vc = [[CoreGraphicsViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
